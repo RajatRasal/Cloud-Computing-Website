@@ -238,7 +238,7 @@ header.masthead p {
 @media (min-width: 992px) {
   header.masthead {
     height: 100vh;
-    min-height: 650px;
+    /*min-height: 650px;*/
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -353,4 +353,82 @@ header.masthead p {
 .footer-text {
   text-transform: none !important;
   font-size: .7rem;
+}
+
+
+
+/* PERSONAL PAGE STYLES */
+/*
+header.personal-section-header {
+  padding-top: 7rem !important;
+  padding-bottom: .1em;
+}
+*/
+
+header.masthead.personal-section-header {
+  padding-top: 5rem;
+  padding-bottom: .8rem; /* calc(4rem - 60px); */
+  padding-left: 4rem;
+  /* grey */
+  background-color: #4B413F;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/*
+header.masthead hr {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+*/
+
+/*
+header.masthead h1 {
+  font-size: 2rem;
+}
+
+
+header.masthead p {
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  header.masthead p {
+    font-size: 1.15rem;
+  }
+}
+*/
+
+@media (min-width: 992px) {
+  header.masthead.personal-section-header {
+    max-height: 300px;
+    padding-top: 3rem;
+    padding-bottom: .4rem; /* calc(4rem - 60px); */
+    padding-left: 4rem;
+  }
+  header.masthead h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  header.masthead h1 {
+    font-size: 4rem;
+  }
+}
+
+header.masthead hr.personal-section-divider { 
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.personal-section-title, h6.personal-section-author {
+  text-align: left !important; 
+}
+
+h6.personal-section-author {
+  font-weight: lighter !important;
 }
