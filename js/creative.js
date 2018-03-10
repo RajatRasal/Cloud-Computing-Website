@@ -33,8 +33,8 @@
   // colour of its background. 
   var navbarCollapse = function() {
     if ($("#mainNavbar").offset().top > 100) {
-      $("#mainNavbar").addClass("navbar-shrink");
-      console.log("HERE WE ARE"); 
+      $("#mainNavbar").addClass("navbar-shrink"); 
+      console.log("here");
     } else {
       $("#mainNavbar").removeClass("navbar-shrink");
     }
@@ -43,7 +43,79 @@
   navbarCollapse();
   // Collapse the navbar when page is scrolled
   $(window).scroll(navbarCollapse);
+  
+  const X = $("#sideMenu").offset().top - 100;
+  console.log(X);
+  console.log($(window).scrollTop());
+  
+  const h = $(window).height();
+  const w = $(window).width();
+  console.log("height " + h);
+  console.log("width " + w);
+  
+  /*
+  var sideMenuFix = function() {
+    console.log($(window).scrollTop());
+    if ($(window).scrollTop() > 150 && $(window).scrollTop() <= h) { 
+      console.log('here');
+      $("#sideMenu").css({
+        position: 'relative',
+        top: $(window).scrollTop() - X
+        //top: '40px'
+        });
+      console.log("now");
+    } else if ($(window).scrollTop() > h) {
+      $("#sideMenu").css({
+        position: 'relative',
+        top: h - X - 100
+        //top: '40px'
+        });
+    } else {
+      console.log('there');
+      $("#sideMenu").css({
+        //position: 'relative',
+        //top: X
+        top: 0
+        });
+    }
+  };
+  
+  
+  sideMenuFix();
+  
+  $(window).scroll(sideMenuFix);
+  */
+  
+  var sideMenuFix = function() {
+    console.log($(window).scrollTop());
+    if ($(window).scrollTop() > (X + (w / 40)) && $(window).scrollTop() <= h) { 
+      console.log('here');
+      $("#sideMenu").css({
+        position: 'relative',
+        top: $(window).scrollTop() - (X + (w / 40))
+        });
+      console.log("now");
+    } else if ($(window).scrollTop() > h) {
+      $("#sideMenu").css({
+        position: 'relative',
+        });
+      /*$(window).css({
+        overflow: 'hidden'
+        });*/
+    } else {
+      console.log('there');
+      $("#sideMenu").css({
+        top: 0
+        });
+    }
+  };
+  
+  
+  sideMenuFix();
+  
+  $(window).scroll(sideMenuFix);
 
+  
   // Scroll reveal calls
   window.sr = ScrollReveal();
   sr.reveal('.sr-icons', {
