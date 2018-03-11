@@ -221,7 +221,7 @@ header.masthead hr {
 }
 
 header.masthead h1 {
-  font-size: 2 rem;
+  font-size: 2rem;
 }
 
 header.masthead p {
@@ -435,7 +435,7 @@ header.masthead hr.personal-section-divider {
 
 .personal-section-author {
   font-weight: lighter !important;
-  font-size: 13px !important;
+  font-size: 14px;
 }
 
 .personal-section-body {
