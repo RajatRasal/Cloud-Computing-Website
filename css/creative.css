@@ -467,9 +467,11 @@ header.masthead hr.personal-section-divider {
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
+
 }
 
 #sideMenu .nav a:hover {
+  /*color: red; #F04F50;*/
   color: #F04F50 !important;
   background-color: transparent; /* !important; rgba(255, 255, 255, 0.7) !important;
   -webkit-transition: all 0.2s;

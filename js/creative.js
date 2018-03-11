@@ -48,9 +48,9 @@
   
   $('#sideMenu .nav-pills .nav-item a').hover(function() {
     console.log("qwdwdwdqW");
-    $(this).css({
+    /*$(this).css({
       color: 'red'
-    });
+    });*/
     });
   
   $('ul.navbar-nav.ml-auto li.dropdown.nav-item').hover(function() {
