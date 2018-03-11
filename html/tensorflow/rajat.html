@@ -117,44 +117,71 @@
     <div class="col-md-9 col-sm-12 scrollspy-example" data-spy="scroll" data-target="#sideMenu">
       <div id="section1" class="">
         <article> 
-        <h1>Section 1</h1>
+        <h1>What is TensorFlow?</h1>
         <hr>
+		<h4 class="subtitle">Introduction</h4>
         <p> 
-        <pre><code>&lt;p&gt;Sample text here...&lt;/p&gt;
-&lt;p&gt;And another line of sample text here...&lt;/p&gt;
-</code></pre>
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="./test.html"></iframe>
-</div>
+        TensorFlow is an open-source framework for performing mathematical computations, 
+        primarily used for its portable, scalable implementations of machine learning 
+        algorithms to applications such as deep neural networks. In this way, TensorFlow’s 
+        implementation results in little effect to performance when scaling up 
+        (large server clusters with GPUs) or scaling down (i.e. Android or IOS device). 
+        This is further extended by the TensorFlow’s ability to conduct training and 
+        execution aspects of ML algorithm efficiently in a distributed manner across 
+        multiple, different computing devices.</p>
+          
+        <p> Deep Learning has massively influenced the field of Computer Science, with 
+        these ideas giving rise to highly functional applications with ‘smart’ abilities. 
+        Google was making use of these techniques to power the algorithms behind its 
+        search, mail, photos and speech recognition tools 
+        (https://www.youtube.com/watch?v=oZikw5k_2FM). At the time, this was being done 
+        with its DistBelief 
+        (https://static.googleusercontent.com/media/research.google.com/en//archive/large_deep_networks_nips2012.pdf) 
+        framework, but as the need for machine learning grew, a more robust and efficient 
+        implementation was needed. TensorFlow arose from the need to generalise different 
+        machine learning implementations across Google to allow engineers to reuse the 
+        basic code base for future projects. After open-sourcing TF, 
+        (https://www.wired.com/2015/11/google-open-sources-its-artificial-intelligence-engine/) 
+        Google released a distributed version of the framework alongside its Google Cloud 
+        Machine Learning infrastructure to train and serve TF models.</p><br>
+          
+        <h4 class="subtitle">Advantages to using TensorFlow for Cloud Computing</h4>
+        <p> 
+        The main advantages to using TensorFlow for any distributed, iterative calculation 
+        (with the case of ML) stem from its implemented as a data flow graph. I will 
+        explore these more as I go along, but will outline them here: 
+        </p>
+        <p>
+        <ul>
+          <li>Portability - 
+            At its heart TensorFlow is written in C++, however there also exist the more widely 
+            used Java, Go, Python and a slightly higher level C++ API 
+            (https://github.com/tensorflow/tensorflow) built on top of the C++ core. The 
+            Python API being most prominently used in research and for any high level ML 
+            applications. This abstraction gives rise to the graph data flow model, by 
+            hiding the complexities of how the model is deployed and executed differently 
+            on different platforms. With best practices being encoded at the low level, 
+            developers can focus on the larger tasks at hand. Developers need not consider 
+            how the core libraries are implementing algorithms on different devices, as 
+            optimisation have been made to ensure similar runtimes across platforms. In 
+            this way, we can abstract away the actual implementation and visual our algorithms 
+            as a graph, with this being the high level models object orientated realisation. 
+            In this way, Python’s TF API, for example, will allow for the same code to be 
+            run on Android devices or across a large cluster of servers running on GPUs alike. (https://www.youtube.com/watch?v=t64ortpgS-E) (Learning TensorFlow A Guide to Building Deep Learning Systems.pdf page 6)</li>
+          <li>Tea</li>
+          <li>Milk</li>
+        </ul>
+        
         During Compile time, the compiler converts the source code into Microsoft 
         Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
          set of instructions that can be effectively converted to the native code. Now with
           the help of JIT compiler, IL code can be executed on any computer architecture 
           supported by the JIT compiler.
           
-          During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler.</p>
-          <p> 
-          During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler
-          
-          During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler.</p>
-          <p>
-          During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler.
+          <pre><code>
+          &lt;p&gt;Sample text here...&lt;/p&gt;
+&lt;p&gt;And another line of sample text here...&lt;/p&gt;
+</code></pre>
           
           During Compile time, the compiler converts the source code into Microsoft 
         Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
@@ -167,6 +194,10 @@
          set of instructions that can be effectively converted to the native code. Now with
           the help of JIT compiler, IL code can be executed on any computer architecture 
           supported by the JIT compiler.
+          
+          <div class="embed-responsive embed-responsive-16by9">
+  			<iframe class="embed-responsive-item" src="./test.html"></iframe>
+		</div>
           
           During Compile time, the compiler converts the source code into Microsoft 
         Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
