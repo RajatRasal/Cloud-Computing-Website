@@ -379,9 +379,13 @@ header.masthead.personal-section-header {
 }
 
 .personal-section-body #sideMenu hr {
-  color: red;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  /*color: red;*/
+  margin-top: 10px;
+  margin-bottom: 0px;
+  border-top: 1px solid #F39845; 
+  /*max-width: 5rem;*/
+  /*padding-top: .3rem;*/
+  padding-bottom: .3rem;
 }
 
 /*
@@ -395,6 +399,7 @@ header.masthead p {
   }
 }
 */
+
 
 header.masthead.personal-section-header h1 {
   font-size: 3rem;
@@ -449,3 +454,37 @@ header.masthead hr.personal-section-divider {
 #sideMenu {
   background-color: #fff; 
 }
+
+#sideMenu .nav {
+  background-color: rgb(234, 234, 234); /*#f7f7f7; rgb(255, 192, 99);*/
+  padding: 16px 12px 16px 16px;
+  max-height: 400px;
+  font-size: 12px;
+}
+
+#sideMenu .nav a {
+  color: #212529 !important; /*rgba(255, 255, 255, 0.7) !important;*/
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+#sideMenu .nav a:hover {
+  color: #F04F50 !important;
+  background-color: transparent; /* !important; rgba(255, 255, 255, 0.7) !important;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;*/
+}
+
+
+.nav-pills .nav-link.active { /*, .nav-pills .show > .nav-link {*/
+  font-weight: 600;
+  background-color: transparent; /* !important;*/
+}
+
+/*#sideMenu > .nav-pills > .nav-item a:hover {
+  color: #F04F50; 
+}*/
+
+

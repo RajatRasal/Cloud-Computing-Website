@@ -46,6 +46,20 @@
   // Collapse the navbar when page is scrolled
   $(window).scroll(navbarCollapse);
   
+  $('#sideMenu .nav-pills .nav-item a').hover(function() {
+    console.log("qwdwdwdqW");
+    $(this).css({
+      color: 'red'
+    });
+    });
+  
+  $('ul.navbar-nav.ml-auto li.dropdown.nav-item').hover(function() {
+  console.log('wdwwefwfeF');
+  $(this).find('div.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+  }, 
+  function() {
+  $(this).find('div.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+});
   
   // Scroll reveal calls
   
