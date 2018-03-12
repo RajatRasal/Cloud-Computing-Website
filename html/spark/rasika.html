@@ -45,9 +45,9 @@
     <!--nav class="navbar navbar-toggleable-md navbar-light bg-faded" id="mainNavbar"-->
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">Group 52</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" 
-        data-toggle="collapse" data-target="#navbarResponsive" 
-        aria-controls="navbarResponsive" aria-expanded="false" 
+        <button class="navbar-toggler navbar-toggler-right" type="button"
+        data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false"
         aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -61,7 +61,7 @@
             </li>
             <li class="nav-item dropdown">
               <!-- a class="nav-link js-scroll-trigger" href="#">Models</a-->
-              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" 
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Models
               </a>
@@ -75,217 +75,265 @@
         </div>
       </div>
     </nav>
-    
+
     <header class="masthead text-center text-white d-flex personal-section-header">
       <div class="container my-auto"> <!-- my-auto"-->
         <div class="row">
           <div class="col">
             <h1 class="text-uppercase personal-section-title">
-              <strong>Title</strong>
+              <strong>Apache Spark</strong>
             </h1>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <p class="text-faded personal-section-author">Researched By:</p>
+            <p class="text-faded personal-section-author">Researched By: Rasika Navarange</p>
           </div>
         </div>
       </div>
     </header>
-    
+
     <section class="personal-section-body">
-    
+
     <div class="container-fluid">
     <div class="row">
     <nav class="col-md-3 d-none d-md-block navbar navbar-expand-lg navbar-light" id="sideMenu" style="background-color: transparent">
       <ul class="nav nav-pills flex-column" style="">
         <li class="nav-item">
-          <a class="nav-link" href="#section1">Introduction</a>
+          <a class="nav-link" href="#section1">What is Spark?</a>
           <hr class="sideMenuDivider">
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#section2">Section 2</a>
+          <a class="nav-link" href="#section2">What is a Cluster?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#section3">Section 3</a>
+          <a class="nav-link" href="#section3">Resilient Distributed Datasets</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#section4">Section 4</a>
+          <a class="nav-link" href="#section4">Directed Acyclic Graphs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section5">Advantages of Spark</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section6">Spark Libraries</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section7">Spark's Drawbacks</a>
         </li>
       </ul>
     </nav>
     <div class="col-md-9 col-sm-12 scrollspy-example" data-spy="scroll" data-target="#sideMenu">
       <div id="section1" class="">
-        <article> 
-        <h1>Section 1</h1>
+        <article>
+        <h1>What is Spark?</h1>
         <hr>
-        <p> During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler.
-          
-          During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler.</p>
-          <p> 
-          During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler
-          
-          During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler.</p>
+        <p> Apache Spark is an open source framework for cluster computing in the cloud. It was first developed by Matei Zaharia in 2009
+          at the UC Berkeley AMPLab; it was later donated to the Apache Software Foundation in 2013. Spark was created in
+          response to some of the deficiencies identified in MapReduce due to inefficient data sharing.</p>
           <p>
-          During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler.
-          
-          During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler
-          
-          During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler.
-          
-          During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler.</p>
+          Firstly, MapReduce is inefficient with <b>iterative computations</b> that work on the same dataset repeatedly, as MapReduce
+          must read data from the disk with every iteration, which takes too long. Secondly, MapReduce does not support
+          <b>interactive applications</b> such as data analysis (e.g. making ad-hoc queries to the dataset) because with MapReduce,
+           queries can take too long to process since the data must be read from stable storage.</p>
+          <p>
+          Spark does not have these issues for this class of problems as it uses <b>resilient distributed datasets (RDDs)</b>
+          which allow it to perform the above computations in-memory. This means intermediate results are held in-memory
+          so data can be accessed much faster. This improves the performance of computations greatly when we need to work
+          on the same dataset many times (as in the above cases). Spark can perform some operations anywhere from 10x to
+          100x faster than Hadoop MapReduce.</p>
           <br><br>
         </article>
       </div>
-      <div id="section2" class=""> 
+      <div id="section2" class="">
       <article>
-        <h1>Section 2</h1>
+        <h1>What is a Cluster?</h1>
         <hr>
-        <p>    During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-         
-            During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-            During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-           During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-            During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-            During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.</p>
-      </div>  
+        <p>A cluster “consists of a collection of interconnected stand-alone computers working together as a single,
+          integrated computing resource” (Buyya, 1999). A computer within the cluster is referred to as a node; nodes
+          in the cluster are generally interconnected via an LAN (local area network). The nodes in the cluster are able
+          to work individually or together, with all the other nodes in the cluster, providing support for parallel
+          applications.</p>
+
+        <figure>
+          <img src="images/Cluster.jpg" alt="cluster" style="width:500px;height:300px;">
+          <figcaption>Fig.1 Cluster Computing Architecture diagram from
+            “High Performance Cluster Commputing” (Buyya, 1999)</figcaption>
+        </figure>
+
+      </div>
       <br><br>
-      </article>  
-      <div id="section3" class="">         
-        <h1>Section 3</h1>
+      </article>
+      <div id="section3" class="">
+        <article>
+        <h1>Resilient Distributed Datasets</h1>
         <hr>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-        <h2>Subsection a</h2>
-        
-                    During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-           During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-            During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-            During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.</p>
+        <p>Resilient Distributed Datasets(RDDs) are “a distributed memory abstraction that lets programmers perform in-memory
+          computations on large clusters” (Zaharia et al RDDs). RDDs partition the data across several nodes and are immutable
+          allowing data to be accessed by multiple threads at once, safely, as the data is not changed.</p>
+        <h2>RDD Operations</h2>
+
+        <p>RDDs can only be formed from data that is already on the disk, or by transforming other RDDs. In Spark,
+          transformation operations are performed lazily: the new dataset, formed by transforming an existing one, is only
+          computed when it is required to. For example, an action operation may require a result to be returned, thus forcing
+          the new RDD to be calculated. To illustrate this, let us look at the following example from the Spark Programming
+          Guide which calculates the total length of a text file using the map and reduce operations:</p>
+
+          <code> <font color="black"> <b> JavaRDD<String> lines = sc.textFile("data.txt");<br>
+                 JavaRDD<Integer> lineLengths = lines.map(s -> s.length());<br>
+                 int totalLength = lineLengths.reduce((a, b) -> a + b);</b></font></code>
+
         <p>
-        During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.</p>
+          <br>
+        Line 1 first creates an RDD named “lines”. Line 2 uses the transformation operation “map” which changes the value of
+        each line in “lines” to its length. Finally, the action operation “reduce” sums all the lengths in “lineLengths” in
+        order to give the total length. Since the evaluation of transformations in Spark is lazy, the new RDD “lineLengths”
+        is not actually evaluated until it is forced to by the action operation “reduce”, at the very end.</p>
+
+        <h2>Fault Tolerance</h2>
+        <p>Fault tolerance is the ability of the system to continue functioning even when some of the nodes have failed
+          (Tannenbaum, van Steen, 2002). Fault tolerance is achieved by finding means of recovering lost data in the event
+          of a failure due to some fault.</p>
+        <p>RDDs have “resilient” in the name because they are fault tolerant. RDDs are fault tolerant because they store
+          their lineage, allowing recovery of lost data: the “lineage” describes the way in which the dataset was derived
+          from other RDDs. Therefore, lost nodes can be rebuilt using data from the disk by tracing the dependencies on
+          other RDDs. This lineage can be represented in the form of  Directed Acyclic Graph (see next section).</p>
+        <p>Immutability makes the tracing of lineage simpler as you are not able to change an RDD while tracking a lineage
+          to rebuild a node. Nodes with large lineages can take a long time to reproduce as following the chain of dependencies
+          can be costly: to fix this, Spark has an API to allow users to “checkpoint” certain pieces of data. Checkpointing
+          in a fault-tolerant distributed system is the saving of data to stable storage at regular intervals to enable the
+          recovery of lost data in the event of a failure (Coulouris, Dollimore & Kindberg, 2005): this reduces the size of
+          the path of lineages that must be traced in order to recover the failed node.</p>
+          <br><br>
+        </article>
       </div>
-      <div id="section4" class="">         
-        <h1>Section 4-1</h1>
+
+      <div id="section4" class="">
+            <article>
+            <h1>Directed Acyclic Graphs</h1>
+            <hr>
+            <p> Spark has “an advanced DAG execution engine that supports acyclic data flow". A Directed Acyclic Graph is a
+              set of nodes joined with arcs; these arcs have a specified direction from one node to the next and the graph
+              does not contain any cycles.</p>
+            <p>When Spark is given a job, it generates a DAG in order to execute a program in several “stages”. The DAG is
+                passed to the DAG Scheduler when an action operation is run on an RDD; the DAG Scheduler then splits up the
+                graph into “stages”. Each stage combines as many transformations which can be computed together at once.
+                Below is a diagram of an example of a DAG for a Spark program from Zaharia et al …:</p>
+                <figure>
+                  <img src="images/DAG.jpg" alt="DAG Diagram" style="width:500px;height:300px;">
+                  <figcaption>Fig.2 Diagram of DAG stages for the transformations map, union, groupBy and join. Notice that
+                    Stage 2 is grouped as a single stage because the Scheduler tries to put as many transformations together
+                    as possible (this is called pipelining). This is possible in the case of Stage 2 because each partition
+                    in directed only to one other partition in another RDD: this property is known as having a “Narrow dependency”
+                    as opposed to a wide dependency, like the groupBy operation.</figcaption>
+                </figure>
+            <p> <br> The DAG also helps RDDs’ fault tolerance by enabling a representation of the lineages of the nodes. Notice
+                that the tracing of transformations of intermediate datasets when executing a job is the same as the tracing
+                of dependencies of the RDD so the DAG diagram above is the lineage graph for the RDD G.</p>
+              <br><br>
+            </article>
+          </div>
+      <div id="section5" class="">
+        <article>
+        <h1>Advantages of Spark</h1>
         <hr>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-        
-                    During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-           During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-            During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-            During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.</p>
-      </div>      
-      <div id="section42" class="">         
-        <h1>Section 4-2</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+        <p>Spark can “run programs up to 100x faster than Hadoop MapReduce in memory, or 10x faster on disk”.</p>
+        <p>Spark is easy to use as it has APIs for commonly used programming languages such as Scala (the language in which
+           Spark is implemented), Python and Java. In addition, the Spark shell makes interactive data analysis simpler as
+           ad-hoc queries to the dataset can be made more easily.</p>
+        <p>As mentioned before, iterative algorithms that work on the same data set (such as PageRank), multiple times do
+          not perform well with Hadoop MapReduce. This is because each iteration must read/write to HDFS which necessitates
+          several intermediate processes such as serialisation or compression (Malak, East, 2016). Hence, Spark is superior
+          for this class of computations due to its RDD data abstraction which allows in-memory computations so that the
+          dataset can be re-accessed more quickly, due to reduced latency.</p>
+        <p>Furthermore, Spark users can use the “persist” or “cache” methods to cache RDDs in memory so that they can be
+          more easily accessed in the future. This is useful for interactive data mining as querying the dataset becomes
+          much faster due to the faster memory access than reading from the disk. For example, if we want the RDD F from
+          the DAG diagram above to stay in memory, we make the following method call.</p>
+
+          <code><font color="black"><b> F.persist(StorageLevel.MEMORY_ONLY()); </b></font></code>
+
+        <p><br>Spark has libraries for machine learning, SQL, graphs and streaming (see next section).</p>
+          <br><br>
+        </article>
       </div>
+      <div id="section6" class="">
+        <article>
+        <h1>Spark Libraries</h1>
+      </article>
+      <article>
+        <h2>MLlib</h2>
+        <p>MLlib is Spark’s machine learning library which comes with many useful algorithms such as logistic regression,
+          generalised linear regression, Alternating Least Squares (ALS) and many more.  There are also further utilities
+          such as summary statistics and hypothesis testing. This convenience allows novice users to use these algorithms
+          straight away and focus on the data analysis, while professionals can modify and refine the algorithms as they
+          please.</p>
+        <p>Toyota uses Spark MLlib to improve social media engagement and gain insights on customers through public social
+          media mentions of Toyota in order to enhance their marketing strategies. MLlib helps Toyota to “categorise and
+          prioritise incoming social media interactions in real-time” by separating noise from customer feedback and opinions
+          which can be used to improve their product.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Zy84w4BLOR8"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </article>
+      <article>
+        <br>
+        <h2>GraphX</h2>
+        <p>GraphX is Spark’s graphing library in which a graph is represented by two RDDs, one for arcs and the other for
+          nodes.  GraphX has the property that the data structure does not have to be only processed as a graph, whereby a
+          graph must be traversed to access a node, but can also be treated as separate datasets consisting of nodes and arcs.
+          Hence, manipulating the data becomes the simple task of applying transformation operations to the nodes RDD which is
+          what Spark was designed for.</p>
+        <p>Alibaba uses GraphX to process and analyse the data that they collect from buyers and sellers. These buyers and
+          sellers can be represented as nodes on a graph and the connections between them, the arcs. GraphX is used as a way
+          to analyse this data quickly with the use of the standard algorithms already in the library and with more refined
+          algorithms.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/7_jm_tDD_SI"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </article>
+      <article>
+        <br>
+        <h2>Spark SQL</h2>
+        <p>Spark SQL is a library which can be used to run SQL queries on the data or even to read data from Apache Hive.
+          Spark SQL extracts more data about the data in the RDD and the transformations and actions performed: this information
+          is used to optimise queries to the dataset for faster interactive data analysis. Queries can be executed from the
+          shell which is a further benefit for interactive analysis.</p>
+        <p>Yahoo uses Spark SQL to interatively query their data about visits from online advertisments</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/h8u_ZgjzHiQ"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>  
+        </article>
+        <article>
+          <br>
+        <h2>Spark Streaming</h2>
+        <p>“Spark Streaming makes it easy to build scalable fault-tolerant streaming applications.” </p>
+        <p>Spark Streaming enables Spark to process live data streams by splitting them into batches which Spark was designed
+          to operate on. DStreams are used as the representation for live continuous data streams.</p>
+        <p>Netflix utilises Apache Spark Streaming to give “near real-time” recommendations to their users based on the live
+          data streams from users watching Netflix every day. Before Spark, the usual means of using user data to provide
+          recommendations would be via batch processing. However, this does not allow Netflix to respond instantly to what
+          is popular and what users are watching in real-time. Spark Streaming allows Netflix to process all the live data
+          they are continuously collecting as it splits the data into batches which can be processed instantly.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/1C6DCQP90Uw"
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </article>
+          <br><br>
+      </div>
+      <div id="section7" class="">
+        <article>
+        <h1>Spark's Drawbacks</h1>
+        <hr>
+        <p>According to Zaharia et al (2012), Spark RDDs are “less suitable for applications that make asynchronous finegrained
+          updates to shared state, such as a storage system for a web application or an incremental web crawler”. This is because
+          Spark is designed for batch-processing of data, applying the same operation on the entire dataset.</p>
+        <p>When processing big data in memory, Spark requires a lot of RAM which can become very expensive. This makes Spark more
+           expensive to run than Hadoop MapReduce which performs more computations on stable storage.</p>
+           <br><br>
+         </article>
+       </div>
     </div>
   </div>
 </div>
 </section>
-    
+
     <section class="" id="footer" style="background-color:#F38945; color:rgba(255, 255, 255, 0.7); box-shadow: 0px 2px 10px 5px rgba(100, 100, 100, 0.49);">
       <div class="container-fluid">
         <div class="row">
@@ -294,8 +342,8 @@
             <hr style="border-top: 1px solid #4B4135; border-width: 3px;">
             <div class="footer-text">
             	Rajat Rasal <br>
-            	Rasika Navarange <br> 
-            	Giovanni Caruso <br> 
+            	Rasika Navarange <br>
+            	Giovanni Caruso <br>
             	Pamelpreet Jhinger <br>
             </div>
           </div>
@@ -305,7 +353,7 @@
             <div class="footer-text">
               <a href="https://github.com/BlackrockDigital/startbootstrap-creative"
               style="color:rgba(255, 255, 255, 0.7);">
-              <i class="fab fa-2x fa-github"></i><br> 
+              <i class="fab fa-2x fa-github"></i><br>
               startbootstrap-creative
               </a><br>
               altered by Rajat Rasal
@@ -315,7 +363,7 @@
       </div>
     </section>
 
-    
+
     <script src="../../vendor/jquery/jquery.min.js"></script>
     <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -326,14 +374,14 @@
     <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="../../vendor/scrollreveal/scrollreveal.min.js"></script>
     <script src="../../vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
     <!-- Custom scripts for this template -->
     <!-- script src="js/creative.min.js"></script-->
     <script src="../../js/creative.js"></script>
     <script src="../../js/personal_page_scripts.js"></script>
-    
+
   </body>
-  
+
 </html>
