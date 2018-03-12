@@ -101,14 +101,22 @@
       <ul class="nav nav-pills flex-column" style="">
         <li class="nav-item">
           <a class="nav-link" href="#section1">What is Tensorflow?</a>
-            <a class="nav-link subsection" href="#subsection1" 
-            style="padding-top:0;margin-left:10px;font-size:11px;p">Introduction</a>
-            <a class="nav-link subsection" href="#subsection1" 
+          <a class="nav-link subsection" href="#subsection1" 
+            style="padding-top:0;margin-left:10px;font-size:11px;">Introduction</a>
+          <a class="nav-link subsection" href="#subsection2" 
             style="padding-top:0;margin-left:10px;font-size:11px;">Advantages</a>
           <hr class="sideMenuDivider">
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#section2">Machine Learning in Context</a>
+          <a class="nav-link" href="#section2">Machine Learning</a>
+          <a class="nav-link subsection" href="#subsection3" 
+            style="padding-top:0;margin-left:10px;font-size:11px;">Softmax Regression</a>
+          <a class="nav-link subsection" href="#subsection3a" 
+            style="padding-top:0;margin-left:10px;font-size:11px;">Implementation</a>
+          <a class="nav-link subsection" href="#subsection3" 
+            style="padding-top:0;margin-left:10px;font-size:11px;">Convolutional Neural Networks</a>
+          <a class="nav-link subsection" href="#subsection3a" 
+            style="padding-top:0;margin-left:10px;font-size:11px;">Implementation</a>
           <hr class="sideMenuDivider">
         </li>
         <li class="nav-item">
@@ -218,42 +226,152 @@
       <article>
         <h1>Machine Learning In Context</h1>
         <hr>
-        <p>    During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
+        <p> 
+        It is beyond the scope of this project to go into the details of machine learning 
+        algorithms, but we can however discuss the basic concepts with the help of an example. 
+        We will be implementing an ML algorithm to classify handwritten digits after training 
+        on the MNIST dataset. This will (http://yann.lecun.com/exdb/mnist/)
+        </p>
+        
+        <h4 class="subtitle">Supervised Learning with Softmax Regression</h4> 
+        <p>
+        We will examine an example which used supervised learning. This technique involve 
+        training a model on a set of example input-output pairs (training data), so as to 
+        learn a function for mapping any other inputs to outputs (Machine Learning: a modern approach). 
+        From this we expect the model to establish a sensible inductive bias, a set of 
+        assumptions the model can use for future mappings. (A model of inductive bias 
+        learning, Jonathan Baxter).
+        
+        The technique we will examine is called softmax regression, which can be used to 
+        classify an observation into one of more than 2 categories (multi-label classification - 
+        springer book on multilabel classification). This is a generalisation of the logistic 
+        regression, which makes a binary classification (this is beyond the scope of this 
+        project by can be further read about here: https://www.geeksforgeeks.org/understanding-logistic-regression/,
+        (Machine Learning: a modern approach). Where the logisitic regression classifies a 
+        normalised input vector using a logistic (sigmoid) function, the softmax algorithm 
+        using a so-called softmax function, which generalises the sigmoid.   
+        </p>
+        
+        The softmax algorithm for the MNIST classification problem (WLOG) is as follows:
+
+        <ol class="personal-page-list">
+          <li class="">
+            <span>1.</span>
+            <p>
+            <br>
+            Establish k possible classes, a class for each number 0 to 9.
+            </p>
+          </li>
+    
+          <li>
+            <span>2.</span>
+            <p>
+            We compile all the images we want to classify into a features matrix (X, dim(x) = n x m), 
+            where we want to class m images (features), with n observations made about each 
+            image. If we want to classify with 100 handwritten digit images which are in 
+            black and white, where each image has size 28x28pixels containing either a 1 
+            or 0, then n = 100, m = 28 ^ 2 = 784 and k = 10 (from above). So each image 
+            to be classified is a m-row vector. 
+            </p>
+          </li>
+    
+          <li>
+            <span>3.</span>
+            <p>
+            Weight vectors are computed for each class (each number). This will involve 
+            unravelling each image for each class in the MNIST training data set, and for 
+            each pixel determining a number which represents its level of “zeroness” or 
+            “oneness”. i.e. how close each pixel is to being a 1 or a 0 for each number. 
+            Each weight vector is put into a weight matrix (W, dim(W) = m x k). So each class (number) 
+            is represented as a m-column vector. Each weight vector is initialised with 
+            arbitrary images which follow a normal distribution, i.e. 1s are closer to the 
+            centre of the image than 0s.
+            </p>
+          </li>
+          
+          <li>
+            <span>4.</span>
+            <p>
+            Z = xW (dim(Z) = n x k). Each element in the k-row vectors of Z gives us a score of how close 
+            it is to being one of the classes. We pick the max value as the class that it 
+            belongs to e.g. if Z_30 = [1.2, 1.4, 0.4, 1.3, 1.6, 5.4, 1.1, 0.1, 1.7, 0.6] 
+            means that our model predicts the 30th observation to be the number ‘5’ 
+            (https://www.geeksforgeeks.org/softmax-regression-using-tensorflow/).
+            </p>
+          </li>
+          
+          <li>
+            <span>5.</span>
+            <p>
+            Now we use the softmax function to convert each score in Z to a probability,
+             such that the sum of all probabilities in a row is 1. This allows us to use 
+             the gradient decent algorithm to learn from the classification we made in 
+             step 4 and build up the weight matrix we began computing in step 3.
+            </p>
+          </li>
+          
+          <li>
+            <span>6.</span>
+            <p>
+            Each observation vector comes with a target vector, which uses one-hot encoding. 
+            This assigns a 1 to the index that contains the expected result and a 0 to all 
+            the other ones which it is not. We feed the one-hot encoded matrix and softmax 
+            probability matrix into a cross-entropy function. This calculates the error in 
+            identifying each number (each value in S is between 0 and 1 since S consists of 
+            probabilities, so a the absolute log of a number closer to 0 is larger than a 
+            number closer to 1, so a more accurately predicted number will have a larger 
+            cross-entropy value). We compute the cross entropy function for each row in the 
+            softmax matrix, and find an average error across the whole matrix. 
+            (https://towardsdatascience.com/deep-learning-concepts-part-1-ea0b14b234c8)  
+            (http://ml-cheatsheet.readthedocs.io/en/latest/loss_functions.html#cost-function) 
+            (http://neuralnetworksanddeeplearning.com/chap3.html) 
+            (The SVM Classifier Oxford lecture 2 notes)
+            </p>
+          </li>
+          
+          <li>
+            <span>7.</span>
+            <p>
+            Finally we use gradient of the average entropy loss function to update the 
+            weight matrix (gradient descent) (For more info: (http://ml-cheatsheet.readthedocs.io/en/latest/gradient_descent.html)
+            We repeat this process for some number of iterations over the training set or 
+            until the average loss function is below a threshold.           
+            </p>
+          </li>
+        </ol> 
          
-         
-            During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-            During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-           During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-            During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-            During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.</p>
+      <h4 class="subtitle">Implementation</h4> 
+        <p>
+          <div class="embed-responsive embed-responsive-16by9" style="height:40rem">
+            <iframe class="embed-responsive-item" src="./MNIST.html"></iframe>
+          </div>
+          <br>
+        </p>
+        
+      <h4 class="subtitle">Convolutional Neural Networks</h4> 
+        <p>
+        We will examine an example which used supervised learning. This technique involve 
+        training a model on a set of example input-output pairs (training data), so as to 
+        learn a function for mapping any other inputs to outputs (Machine Learning: a modern approach). 
+        From this we expect the model to establish a sensible inductive bias, a set of 
+        assumptions the model can use for future mappings. (A model of inductive bias 
+        learning, Jonathan Baxter).
+        
+        The technique we will examine is called softmax regression, which can be used to 
+        classify an observation into one of more than 2 categories (multi-label classification - 
+        springer book on multilabel classification). This is a generalisation of the logistic 
+        regression, which makes a binary classification (this is beyond the scope of this 
+        project by can be further read about here: https://www.geeksforgeeks.org/understanding-logistic-regression/,
+        (Machine Learning: a modern approach). Where the logisitic regression classifies a 
+        normalised input vector using a logistic (sigmoid) function, the softmax algorithm 
+        using a so-called softmax function, which generalises the sigmoid.   
+        </p>
+        
+      <h4 class="subtitle">Implementation</h4> 
+        <p>
+        </p>
+        
+       
       </div>  
       <br><br>
       </article>  
@@ -426,6 +544,7 @@
           </div>
         </div>
       </div>
+    </section>
     </section>
     
     

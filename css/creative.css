@@ -4,7 +4,7 @@ html {
   height: 100%;
   font-family: 'Tahoma', 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-size: 14px;
+  font-size: 12.5px;
 }
 
 body {
@@ -495,4 +495,30 @@ header.masthead hr.personal-section-divider {
   color: #F04F50; 
 }*/
 
+/*div {
+  width: 500px;
+  margin: 10px
+}*/
 
+/* Personal page ordered lists */
+ol.personal-page-list {
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+ol.personal-page-list li {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+ol.personal-page-list > li p {
+  padding-left: 45px;
+}
+
+ol.personal-page-list span {
+  font: bold italic 40px Helvetica;
+  color: #FFC993;
+  padding-left: 0px;
+  position: absolute;
+}
