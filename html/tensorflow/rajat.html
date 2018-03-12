@@ -81,13 +81,13 @@
         <div class="row">
           <div class="col">
             <h1 class="text-uppercase personal-section-title">
-              <strong>Title</strong>
+              <strong>TensorFlow</strong>
             </h1>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <p class="text-faded personal-section-author">Researched By:</p>
+            <p class="text-faded personal-section-author">Researched By: Rajat Rasal</p>
           </div>
         </div>
       </div>
@@ -102,7 +102,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#section1">What is Tensorflow?</a>
             <a class="nav-link subsection" href="#subsection1" 
-            style="padding-top:0;margin-left:10px;font-size:11px;">Introduction</a>
+            style="padding-top:0;margin-left:10px;font-size:11px;p">Introduction</a>
             <a class="nav-link subsection" href="#subsection1" 
             style="padding-top:0;margin-left:10px;font-size:11px;">Advantages</a>
           <hr class="sideMenuDivider">
@@ -143,8 +143,7 @@
         <p> Deep Learning has massively influenced the field of Computer Science, with 
         these ideas giving rise to highly functional applications with ‘smart’ abilities. 
         Google was making use of these techniques to power the algorithms behind its 
-        search, mail, photos and speech recognition tools 
-        (https://www.youtube.com/watch?v=oZikw5k_2FM). At the time, this was being done 
+        search, mail, photos and speech recognition tools. At the time, this was being done 
         with its DistBelief 
         (https://static.googleusercontent.com/media/research.google.com/en//archive/large_deep_networks_nips2012.pdf) 
         framework, but as the need for machine learning grew, a more robust and efficient 
@@ -154,8 +153,15 @@
         (https://www.wired.com/2015/11/google-open-sources-its-artificial-intelligence-engine/) 
         Google released a distributed version of the framework alongside its Google Cloud 
         Machine Learning infrastructure to train and serve TF models.</p><br>
+    
+        
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/oZikw5k_2FM" 
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+          </iframe>
+        </div>
           
-        <h4 class="subtitle">Advantages to using TensorFlow for Cloud Computing</h4>
+        <h4 class="subtitle">Advantages for Cloud Computing</h4>
         <p> 
         The main advantages to using TensorFlow for any distributed, iterative calculation 
         (with the case of ML) stem from its implemented as a data flow graph. I will 
@@ -163,7 +169,7 @@
         </p>
         <p>
         <ul>
-          <li>Portability - 
+          <li><b>Portability</b> - 
             At its heart TensorFlow is written in C++, however there also exist the more widely 
             used Java, Go, Python and a slightly higher level C++ API 
             (https://github.com/tensorflow/tensorflow) built on top of the C++ core. The 
@@ -177,41 +183,35 @@
             this way, we can abstract away the actual implementation and visual our algorithms 
             as a graph, with this being the high level models object orientated realisation. 
             In this way, Python’s TF API, for example, will allow for the same code to be 
-            run on Android devices or across a large cluster of servers running on GPUs alike. (https://www.youtube.com/watch?v=t64ortpgS-E) (Learning TensorFlow A Guide to Building Deep Learning Systems.pdf page 6)</li>
-          <li>Tea</li>
-          <li>Milk</li>
-        </ul>
-        
-        During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler.
+            run on Android devices or across a large cluster of servers running on GPUs alike. 
+            (https://www.youtube.com/watch?v=t64ortpgS-E) 
+            (Learning TensorFlow A Guide to Building Deep Learning Systems.pdf page 6)
+          </li><br>
+          <li><b>Flexibility</b> -
+          	TFs high level APIs provide a highly flexible set of libraries that allow complex 
+          	mathematical procedure to be written with ease. The graph model can be built up as 
+          	a series of discrete units, nodes, with data pipelines, vertices, between them. 
+          	This allow for speedy experimentation without a hit to performance. In the case
+          	of a neural network, parts of the network can be replaced or restructured by 
+          	refactoring the graph. The core will automatically refactor the platform specific 
+          	low level code.
           
-          <pre><code>
-          &lt;p&gt;Sample text here...&lt;/p&gt;
-&lt;p&gt;And another line of sample text here...&lt;/p&gt;
-</code></pre>
+          	Small changes in the description of how the computation is to be performed can 
+          	extend the domain over which the code runs. For example,  
           
-          During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler
+          	<code>Show the example code of the function where the MNIST code is extended. <br> <code> Add code here </code> <br></code>
           
-          During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler.
-        
+          	which we will explore further later on.  In this way, the same model for a neural
+          	network could be trained in the cloud, distributed over some large cluster and 
+          	then served on another platform, if it were deployed across different networks or servers. 
           
-          During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with
-          the help of JIT compiler, IL code can be executed on any computer architecture 
-          supported by the JIT compiler.</p>
-          <br><br>
+          	High level abstraction libraries such as Keras and TF-Slim built on top of 
+          	TensorFlow facilities flexibility. These libraries allow for the execution of more 
+          	complex computations at each node in the graph with relative ease as fewer lines 
+          	of code are being written.  
+          </li>
+          </ul>
+          <br>
         </article>
       </div>
       <div id="section2" class=""> 
@@ -294,7 +294,7 @@
          supported by the JIT compiler.</p>
       </div>
       <div id="section4" class="">         
-        <h1>Section 4-1</h1>
+        <h1>Distributed Computing in Context</h1>
         <hr>
         <p>Try to scroll this section and look at the navigation list while scrolling!</p>
         
@@ -322,14 +322,112 @@
          the help of JIT compiler, IL code can be executed on any computer architecture 
          supported by the JIT compiler.</p>
       </div>      
-      <div id="section42" class="">         
-        <h1>Section 4-2</h1>
+      <div id="section5" class="">         
+        <h1>Use Cases</h1>
+        <hr>
         <p>Try to scroll this section and look at the navigation list while scrolling!</p>
       </div>
     </div>
   </div>
 </div>
-</section>
+    
+        <section class="p-0" id="portfolio">
+      <div class="container-fluid p-0">
+        <div class="row no-gutters popup-gallery">
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
+              <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Project Name
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">
+              <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Project Name
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">
+              <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Project Name
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">
+              <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Project Name
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">
+              <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Project Name
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">
+              <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="portfolio-box-caption-content">
+                  <div class="project-category text-faded">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    Project Name
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
     
     <section class="" id="footer" style="background-color:#F38945; color:rgba(255, 255, 255, 0.7); box-shadow: 0px 2px 10px 5px rgba(100, 100, 100, 0.49);">
       <div class="container-fluid">
