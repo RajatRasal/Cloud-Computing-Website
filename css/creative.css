@@ -50,11 +50,11 @@ h6,
 #footer,
 .btn-light {
   font-family: 'Geneva', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-  text-align: center; 
+  text-align: center;
 }
 
 h4.subtitle {
-  text-align: left; 
+  text-align: left;
   font-weight: lighter;
   font: Roboto, sans-serif;
 }
@@ -140,16 +140,16 @@ img::-moz-selection {
   color: #4B413F;
 }
 
-/* selects nav-link inside li.nav-items inside a navbar, when hovered over */ 
+/* selects nav-link inside li.nav-items inside a navbar, when hovered over */
 #mainNavbar .navbar-nav > li.nav-item > a.nav-link:hover,
 #mainNavbar .navbar-nav > li.nav-item > a.nav-link:focus:hover,
 #mainNavbar .navbar-nav > li.nav-item.dropdown > div.dropdown-menu > a.nav-link.dropdown-item:hover {
   /* orange */
-  color: #F05F40; 
+  color: #F05F40;
 }
 
 #mainNavbar .navbar-nav > li.nav-item.dropdown > div.dropdown-menu > a.nav-link.dropdown-item {
-  padding-left: 20px; 
+  padding-left: 20px;
 }
 
 #mainNavbar .navbar-nav > li.nav-item > a.nav-link.active,
@@ -171,7 +171,7 @@ img::-moz-selection {
   #mainNavbar .navbar-brand {
     color: rgba(255, 255, 255, 0.7);
   }
-  
+
   #mainNavbar .navbar-brand:focus, #mainNavbar .navbar-brand:hover {
     color: #fff;
   }
@@ -388,7 +388,7 @@ header.masthead.personal-section-header {
   /*color: red;*/
   margin-top: 10px;
   margin-bottom: 0px;
-  border-top: 1px solid #F39845; 
+  border-top: 1px solid #F39845;
   /*max-width: 5rem;*/
   /*padding-top: .3rem;*/
   padding-bottom: .3rem;
@@ -428,7 +428,7 @@ header.masthead.personal-section-header h1 {
 }
 
 /*
-header.masthead hr.personal-section-divider { 
+header.masthead hr.personal-section-divider {
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -441,7 +441,7 @@ header.masthead hr.personal-section-divider {
 }
 
 .personal-section-title, .personal-section-author {
-  text-align: left !important; 
+  text-align: left !important;
 }
 
 .personal-section-author {
@@ -458,13 +458,17 @@ header.masthead hr.personal-section-divider {
 }
 
 #sideMenu {
-  background-color: #fff; 
+  background-color: #fff;
 }
 
 #sideMenu .nav {
   background-color: rgb(234, 234, 234); /*#f7f7f7; rgb(255, 192, 99);*/
   padding: 16px 12px 16px 16px;
-  max-height: 400px;
+  max-height: 800px;
+  /*max-width: 350px;
+  overflow: auto;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;*/
   font-size: 12px;
 }
 
@@ -492,7 +496,7 @@ header.masthead hr.personal-section-divider {
 }
 
 /*#sideMenu > .nav-pills > .nav-item a:hover {
-  color: #F04F50; 
+  color: #F04F50;
 }*/
 
 /*div {
