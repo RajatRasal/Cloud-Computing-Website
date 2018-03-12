@@ -154,11 +154,18 @@
           in the cluster are generally interconnected via an LAN (local area network). The nodes in the cluster are able
           to work individually or together, with all the other nodes in the cluster, providing support for parallel
           applications.</p>
-        <img src="images/Cluster.jpg" alt="cluster" style="width:500px;height:400px;">
+
+        <figure>
+          <img src="images/Cluster.jpg" alt="cluster" style="width:500px;height:300px;">
+          <figcaption>Fig.1 Cluster Computing Architecture diagram from
+            “High Performance Cluster Commputing” (Buyya, 1999)</figcaption>
+        </figure>
+
       </div>
       <br><br>
       </article>
       <div id="section3" class="">
+        <article>
         <h1>Resilient Distributed Datasets</h1>
         <hr>
         <p>Resilient Distributed Datasets(RDDs) are “a distributed memory abstraction that lets programmers perform in-memory
@@ -197,6 +204,9 @@
           in a fault-tolerant distributed system is the saving of data to stable storage at regular intervals to enable the
           recovery of lost data in the event of a failure (Coulouris, Dollimore & Kindberg, 2005): this reduces the size of
           the path of lineages that must be traced in order to recover the failed node.</p>
+          <br><br>
+        </article>
+      </div>
 
       <div id="section4" class="">
             <article>
@@ -209,15 +219,22 @@
                 passed to the DAG Scheduler when an action operation is run on an RDD; the DAG Scheduler then splits up the
                 graph into “stages”. Each stage combines as many transformations which can be computed together at once.
                 Below is a diagram of an example of a DAG for a Spark program from Zaharia et al …:</p>
-                <img src="images/DAG.jpg" alt="DAG Diagram" style="width:500px;height:300px;">
+                <figure>
+                  <img src="images/DAG.jpg" alt="DAG Diagram" style="width:500px;height:300px;">
+                  <figcaption>Fig.2 Diagram of DAG stages for the transformations map, union, groupBy and join. Notice that
+                    Stage 2 is grouped as a single stage because the Scheduler tries to put as many transformations together
+                    as possible (this is called pipelining). This is possible in the case of Stage 2 because each partition
+                    in directed only to one other partition in another RDD: this property is known as having a “Narrow dependency”
+                    as opposed to a wide dependency, like the groupBy operation.</figcaption>
+                </figure>
             <p> <br> The DAG also helps RDDs’ fault tolerance by enabling a representation of the lineages of the nodes. Notice
                 that the tracing of transformations of intermediate datasets when executing a job is the same as the tracing
                 of dependencies of the RDD so the DAG diagram above is the lineage graph for the RDD G.</p>
               <br><br>
             </article>
           </div>
-      </div>
       <div id="section5" class="">
+        <article>
         <h1>Advantages of Spark</h1>
         <hr>
         <p>Spark can “run programs up to 100x faster than Hadoop MapReduce in memory, or 10x faster on disk”.</p>
@@ -237,9 +254,14 @@
           <code><font color="black"><b> F.persist(StorageLevel.MEMORY_ONLY()); </b></font></code>
 
         <p><br>Spark has libraries for machine learning, SQL, graphs and streaming (see next section).</p>
+          <br><br>
+        </article>
       </div>
       <div id="section6" class="">
+        <article>
         <h1>Spark Libraries</h1>
+      </article>
+      <article>
         <h2>MLlib</h2>
         <p>MLlib is Spark’s machine learning library which comes with many useful algorithms such as logistic regression,
           generalised linear regression, Alternating Least Squares (ALS) and many more.  There are also further utilities
@@ -250,6 +272,11 @@
           media mentions of Toyota in order to enhance their marketing strategies. MLlib helps Toyota to “categorise and
           prioritise incoming social media interactions in real-time” by separating noise from customer feedback and opinions
           which can be used to improve their product.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Zy84w4BLOR8"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </article>
+      <article>
+        <br>
         <h2>GraphX</h2>
         <p>GraphX is Spark’s graphing library in which a graph is represented by two RDDs, one for arcs and the other for
           nodes.  GraphX has the property that the data structure does not have to be only processed as a graph, whereby a
@@ -260,11 +287,22 @@
           sellers can be represented as nodes on a graph and the connections between them, the arcs. GraphX is used as a way
           to analyse this data quickly with the use of the standard algorithms already in the library and with more refined
           algorithms.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/7_jm_tDD_SI"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </article>
+      <article>
+        <br>
         <h2>Spark SQL</h2>
         <p>Spark SQL is a library which can be used to run SQL queries on the data or even to read data from Apache Hive.
           Spark SQL extracts more data about the data in the RDD and the transformations and actions performed: this information
           is used to optimise queries to the dataset for faster interactive data analysis. Queries can be executed from the
           shell which is a further benefit for interactive analysis.</p>
+        <p>Yahoo uses Spark SQL to interatively query their data about visits from online advertisments</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/h8u_ZgjzHiQ"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>  
+        </article>
+        <article>
+          <br>
         <h2>Spark Streaming</h2>
         <p>“Spark Streaming makes it easy to build scalable fault-tolerant streaming applications.” </p>
         <p>Spark Streaming enables Spark to process live data streams by splitting them into batches which Spark was designed
@@ -274,8 +312,13 @@
           recommendations would be via batch processing. However, this does not allow Netflix to respond instantly to what
           is popular and what users are watching in real-time. Spark Streaming allows Netflix to process all the live data
           they are continuously collecting as it splits the data into batches which can be processed instantly.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/1C6DCQP90Uw"
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </article>
+          <br><br>
       </div>
       <div id="section7" class="">
+        <article>
         <h1>Spark's Drawbacks</h1>
         <hr>
         <p>According to Zaharia et al (2012), Spark RDDs are “less suitable for applications that make asynchronous finegrained
@@ -283,7 +326,9 @@
           Spark is designed for batch-processing of data, applying the same operation on the entire dataset.</p>
         <p>When processing big data in memory, Spark requires a lot of RAM which can become very expensive. This makes Spark more
            expensive to run than Hadoop MapReduce which performs more computations on stable storage.</p>
-      </div>
+           <br><br>
+         </article>
+       </div>
     </div>
   </div>
 </div>
