@@ -162,11 +162,11 @@ iframe {
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#section7">Spark's Drawbacks</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#section8">References</a>
           <hr class="sideMenuDivider">
         </li>
+        <!--<li class="nav-item">
+          <a class="nav-link" href="#section8">References</a>
+        </li>-->
       </ul>
     </nav>
     <div class="col-md-9 col-sm-12 scrollspy-example" data-spy="scroll" data-target="#sideMenu">
@@ -187,8 +187,8 @@ iframe {
           Spark does not have these issues for this class of problems as it uses <b>resilient distributed datasets (RDDs)</b>
           which allow it to perform the above computations in-memory. This means intermediate results are held in-memory
           so data can be accessed much faster. This improves the performance of computations greatly when we need to work
-          on the same dataset many times (as in the above cases). Spark can perform some operations anywhere from 10x to
-          100x faster than Hadoop MapReduce.</p>
+          on the same dataset many times (as in the above cases). According to the <a href="https://spark.apache.org">Apache
+          Spark Website</a>, Spark can perform some operations anywhere from 10x to 100x faster than Hadoop MapReduce.</p>
           <br><br>
         </article>
       </div>
@@ -197,7 +197,7 @@ iframe {
         <h1>What is a Cluster?</h1>
         <hr>
         <p>A cluster “consists of a collection of interconnected stand-alone computers working together as a single,
-          integrated computing resource” (Buyya, 1999). A computer within the cluster is referred to as a node; nodes
+          integrated computing resource”<sup><a href="#fn2" id="ref2">2</a></sup> (Buyya, 1999). A computer within the cluster is referred to as a node; nodes
           in the cluster are generally interconnected via an LAN (local area network). The nodes in the cluster are able
           to work individually or together, with all the other nodes in the cluster, providing support for parallel
           applications.</p>
@@ -205,7 +205,7 @@ iframe {
         <figure>
           <img src="images/Cluster.jpg" alt="cluster" style="width:500px;height:300px;">
           <figcaption>Fig.1 Cluster Computing Architecture diagram from
-            “High Performance Cluster Commputing” (Buyya, 1999)</figcaption>
+            “High Performance Cluster Commputing” <sup><a href="#fn2" id="ref2">2</a></sup> (Buyya, 1999)</figcaption>
         </figure>
 
       </div>
@@ -216,15 +216,16 @@ iframe {
         <h1>Resilient Distributed Datasets</h1>
         <hr>
         <p>Resilient Distributed Datasets(RDDs) are “a distributed memory abstraction that lets programmers perform in-memory
-          computations on large clusters” (Zaharia et al RDDs). RDDs partition the data across several nodes and are immutable
+          computations on large clusters”<sup><a href="#fn3" id="ref3">3</a></sup> (Zaharia et al, 2012). RDDs partition the data across several nodes and are immutable
           allowing data to be accessed by multiple threads at once, safely, as the data is not changed.</p>
-        <h2>RDD Operations</h2>
+        <h2 id="subsection1">RDD Operations</h2>
 
         <p>RDDs can only be formed from data that is already on the disk, or by transforming other RDDs. In Spark,
           transformation operations are performed lazily: the new dataset, formed by transforming an existing one, is only
           computed when it is required to. For example, an action operation may require a result to be returned, thus forcing
-          the new RDD to be calculated. To illustrate this, let us look at the following example from the Spark Programming
-          Guide which calculates the total length of a text file using the map and reduce operations:</p>
+          the new RDD to be calculated. To illustrate this, let us look at the following example from the
+          <a href="https://spark.apache.org/docs/latest/rdd-programming-guide.html#basics">Spark Programming Guide</a> which
+          calculates the total length of a text file using the map and reduce operations:</p>
 
           <code style="width:40em"> <font color="black"> <b> JavaRDD<String> lines = sc.textFile("data.txt");<br>
                  JavaRDD<Integer> lineLengths = lines.map(s -> s.length());<br>
@@ -237,20 +238,22 @@ iframe {
         order to give the total length. Since the evaluation of transformations in Spark is lazy, the new RDD “lineLengths”
         is not actually evaluated until it is forced to by the action operation “reduce”, at the very end.</p>
 
-        <h2>Fault Tolerance</h2>
+        <h2 id="subsection2">Fault Tolerance</h2>
         <p>Fault tolerance is the ability of the system to continue functioning even when some of the nodes have failed
-          (Tannenbaum, van Steen, 2002). Fault tolerance is achieved by finding means of recovering lost data in the event
+          <sup><a href="#fn4" id="ref4">4</a></sup>
+          (Tanenbaum, van Steen, 2002). Fault tolerance is achieved by finding means of recovering lost data in the event
           of a failure due to some fault.</p>
         <p>RDDs have “resilient” in the name because they are fault tolerant. RDDs are fault tolerant because they store
           their lineage, allowing recovery of lost data: the “lineage” describes the way in which the dataset was derived
           from other RDDs. Therefore, lost nodes can be rebuilt using data from the disk by tracing the dependencies on
-          other RDDs. This lineage can be represented in the form of  Directed Acyclic Graph (see next section).</p>
+          other RDDs<sup><a href="#fn3" id="ref3">3</a></sup>. This lineage can be represented in the form of  Directed Acyclic
+          Graph (see next section).</p>
         <p>Immutability makes the tracing of lineage simpler as you are not able to change an RDD while tracking a lineage
           to rebuild a node. Nodes with large lineages can take a long time to reproduce as following the chain of dependencies
           can be costly: to fix this, Spark has an API to allow users to “checkpoint” certain pieces of data. Checkpointing
           in a fault-tolerant distributed system is the saving of data to stable storage at regular intervals to enable the
-          recovery of lost data in the event of a failure (Coulouris, Dollimore & Kindberg, 2005): this reduces the size of
-          the path of lineages that must be traced in order to recover the failed node.</p>
+          recovery of lost data in the event of a failure<sup><a href="#fn5" id="ref5">5</a></sup> (Coulouris, Dollimore &
+          Kindberg, 2005): this reduces the size of the path of lineages that must be traced in order to recover the failed node.</p>
           <br><br>
         </article>
       </div>
@@ -259,13 +262,14 @@ iframe {
             <article>
             <h1>Directed Acyclic Graphs</h1>
             <hr>
-            <p> Spark has “an advanced DAG execution engine that supports acyclic data flow". A Directed Acyclic Graph is a
-              set of nodes joined with arcs; these arcs have a specified direction from one node to the next and the graph
-              does not contain any cycles.</p>
+            <p> Spark has “an advanced DAG execution engine that supports acyclic data flow"(<a href="https://spark.apache.org">Apache
+            Spark Website</a>). A Directed Acyclic Graph is a set of nodes joined with arcs; these arcs have a specified direction from
+            one node to the next and the graph does not contain any cycles.</p>
             <p>When Spark is given a job, it generates a DAG in order to execute a program in several “stages”. The DAG is
                 passed to the DAG Scheduler when an action operation is run on an RDD; the DAG Scheduler then splits up the
                 graph into “stages”. Each stage combines as many transformations which can be computed together at once.
-                Below is a diagram of an example of a DAG for a Spark program from Zaharia et al …:</p>
+                Below is a diagram of an example of a DAG for a Spark program from Matei Zaharia's paper "Resilient Distributed Datasets:
+                A Fault Tolerant Abstraction for In-Memory Cluster Computing"<sup><a href="#fn3" id="ref3">3</a></sup>:</p>
                 <figure>
                   <img src="images/DAG.jpg" alt="DAG Diagram" style="width:500px;height:300px;">
                   <figcaption>Fig.2 Diagram of DAG stages for the transformations map, union, groupBy and join. Notice that
@@ -276,7 +280,7 @@ iframe {
                 </figure>
             <p> <br> The DAG also helps RDDs’ fault tolerance by enabling a representation of the lineages of the nodes. Notice
                 that the tracing of transformations of intermediate datasets when executing a job is the same as the tracing
-                of dependencies of the RDD so the DAG diagram above is the lineage graph for the RDD G.</p>
+                of dependencies of the RDD so <b>the DAG diagram above is the lineage graph for the RDD G.</b></p>
               <br><br>
             </article>
           </div>
@@ -284,15 +288,16 @@ iframe {
         <article>
         <h1>Advantages of Spark</h1>
         <hr>
-        <p>Spark can “run programs up to 100x faster than Hadoop MapReduce in memory, or 10x faster on disk”.</p>
+        <p>Spark can “run programs up to 100x faster than Hadoop MapReduce in memory, or 10x faster on disk”.
+          (<a href="https://spark.apache.org">Apache Spark Website</a>)</p>
         <p>Spark is easy to use as it has APIs for commonly used programming languages such as Scala (the language in which
            Spark is implemented), Python and Java. In addition, the Spark shell makes interactive data analysis simpler as
            ad-hoc queries to the dataset can be made more easily.</p>
         <p>As mentioned before, iterative algorithms that work on the same data set (such as PageRank), multiple times do
           not perform well with Hadoop MapReduce. This is because each iteration must read/write to HDFS which necessitates
-          several intermediate processes such as serialisation or compression (Malak, East, 2016). Hence, Spark is superior
-          for this class of computations due to its RDD data abstraction which allows in-memory computations so that the
-          dataset can be re-accessed more quickly, due to reduced latency.</p>
+          several intermediate processes such as serialisation or compression<sup><a href="#fn6" id="ref6">6</a></sup>
+          (Malak, East, 2016). Hence, Spark is superior for this class of computations due to its RDD data abstraction which
+          allows in-memory computations so that the dataset can be re-accessed more quickly.</p>
         <p>Furthermore, Spark users can use the “persist” or “cache” methods to cache RDDs in memory so that they can be
           more easily accessed in the future. This is useful for interactive data mining as querying the dataset becomes
           much faster due to the faster memory access than reading from the disk. For example, if we want the RDD F from
@@ -310,23 +315,23 @@ iframe {
         <hr>
       </article>
       <article>
-        <h2>MLlib</h2>
-        <p>MLlib is Spark’s machine learning library which comes with many useful algorithms such as logistic regression,
-          generalised linear regression, Alternating Least Squares (ALS) and many more.  There are also further utilities
-          such as summary statistics and hypothesis testing. This convenience allows novice users to use these algorithms
-          straight away and focus on the data analysis, while professionals can modify and refine the algorithms as they
-          please.</p>
+        <h2 id="subsection3">MLlib</h2>
+        <p><a href="https://spark.apache.org/mllib/">MLlib</a> is Spark’s machine learning library which comes with many
+          useful algorithms such as logistic regression,generalised linear regression, Alternating Least Squares (ALS) and
+          many more.  There are also further utilities such as summary statistics and hypothesis testing. This convenience
+          allows novice users to use these algorithms straight away and focus on the data analysis, while professionals can
+          modify and refine the algorithms as they please.<sup><a href="#fn7" id="ref7">7</a></sup></p>
         <p>Toyota uses Spark MLlib to improve social media engagement and gain insights on customers through public social
           media mentions of Toyota in order to enhance their marketing strategies. MLlib helps Toyota to “categorise and
           prioritise incoming social media interactions in real-time” by separating noise from customer feedback and opinions
           which can be used to improve their product.</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/Zy84w4BLOR8"
-        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/nEGSWp5LoQE" frameborder="0" allow="autoplay;
+        encrypted-media" allowfullscreen></iframe>
       </article>
       <article>
         <br>
-        <h2>GraphX</h2>
-        <p>GraphX is Spark’s graphing library in which a graph is represented by two RDDs, one for arcs and the other for
+        <h2 id="subsection4">GraphX</h2>
+        <p><a href="https://spark.apache.org/graphx/">GraphX</a> is Spark’s graphing library in which a graph is represented by two RDDs, one for arcs and the other for
           nodes.  GraphX has the property that the data structure does not have to be only processed as a graph, whereby a
           graph must be traversed to access a node, but can also be treated as separate datasets consisting of nodes and arcs.
           Hence, manipulating the data becomes the simple task of applying transformation operations to the nodes RDD which is
@@ -340,8 +345,8 @@ iframe {
       </article>
       <article>
         <br>
-        <h2>Spark SQL</h2>
-        <p>Spark SQL is a library which can be used to run SQL queries on the data or even to read data from Apache Hive.
+        <h2 id="subsection5">Spark SQL</h2>
+        <p><a href="https://spark.apache.org/sql/">Spark SQL</a> is a library which can be used to run SQL queries on the data or even to read data from Apache Hive.
           Spark SQL extracts more data about the data in the RDD and the transformations and actions performed: this information
           is used to optimise queries to the dataset for faster interactive data analysis. Queries can be executed from the
           shell which is a further benefit for interactive analysis.</p>
@@ -351,17 +356,17 @@ iframe {
         </article>
         <article>
           <br>
-        <h2>Spark Streaming</h2>
+        <h2 id="subsection6">Spark Streaming</h2>
         <p>“Spark Streaming makes it easy to build scalable fault-tolerant streaming applications.” </p>
-        <p>Spark Streaming enables Spark to process live data streams by splitting them into batches which Spark was designed
+        <p><a href="https://spark.apache.org/streaming/">Spark Streaming</a> enables Spark to process live data streams by splitting them into batches which Spark was designed
           to operate on. DStreams are used as the representation for live continuous data streams.</p>
         <p>Netflix utilises Apache Spark Streaming to give “near real-time” recommendations to their users based on the live
           data streams from users watching Netflix every day. Before Spark, the usual means of using user data to provide
           recommendations would be via batch processing. However, this does not allow Netflix to respond instantly to what
           is popular and what users are watching in real-time. Spark Streaming allows Netflix to process all the live data
           they are continuously collecting as it splits the data into batches which can be processed instantly.</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/1C6DCQP90Uw"
-          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/vQgp71cwweg" frameborder="0" allow="autoplay;
+          encrypted-media" allowfullscreen></iframe>
         </article>
           <br><br>
       </div>
@@ -369,22 +374,48 @@ iframe {
         <article>
         <h1>Spark's Drawbacks</h1>
         <hr>
-        <p>According to Zaharia et al (2012), Spark RDDs are “less suitable for applications that make asynchronous finegrained
-          updates to shared state, such as a storage system for a web application or an incremental web crawler”. This is because
-          Spark is designed for batch-processing of data, applying the same operation on the entire dataset.</p>
+        <p>According to Zaharia's paper<sup><a href="#fn3" id="ref3">3</a></sup>, Spark RDDs are “less suitable for applications
+          that make asynchronous finegrained updates to shared state, such as a storage system for a web application or an incremental
+          web crawler”. This is because Spark is designed for batch-processing of data, applying the same operation on the entire dataset.</p>
         <p>When processing big data in memory, Spark requires a lot of RAM which can become very expensive. This makes Spark more
            expensive to run than Hadoop MapReduce which performs more computations on stable storage.</p>
            <br><br>
          </article>
        </div>
-       <div id="section8" class="">
-         <article>
-         <h1>References</h1>
-         <hr>
-         <sup id="fn1">1. [Text of footnote 1]<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup>
+       <div>
+      <hr>
+         <p><sup id="fn1">1. Zaharia, M., Chowdhury, M., Franklin, M. J., Shenker, S. and Stoica, I. (2010)
+           <a href="https://www.usenix.org/event/hotcloud10/tech/full_papers/Zaharia.pdf">Spark:
+           Cluster computing with working sets.</a> <i> 2nd USENIX Conference on Hot Topics in Cloud
+           Computing (HotCloud’10)</i>, Berkeley, USENIX Association.<a href="#ref1" title="Jump back to footnote 1
+           in the text.">↩</a></sup></p>
+        <p><sup id="fn2"><br>2. Buyya, R. (1999) <i>High Performance Cluster Computing.</i> Upper Saddle River, New Jersey,
+          Prentice Hall.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup></p>
+        <p><sup id="fn3"><br>3. Zaharia M, Chowdhury M, Das T, Dave A, Ma J, McCauly M, Franklin MJ, Shenker S, Stoica I.
+          (2012) <a href="https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf">Resilient
+            Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing.</a>
+          <i> 9th USENIX Symposium on Networked Systems Design and Implementation</i>, Berkeley,
+          USENIX Association.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup></p>
+        <p><sup id="fn4"><br>4. Tanenbaum A. S., Van Steen M. (2002) <i>Distributed Systems: Principles and Paradigms.</i>
+          London, Pearson.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup></p>
+        <p><sup id="fn5"><br>5. Coulouris G., Dollimore J., Kindberg T. (2005) <i>Distributed Systems: Concepts and Design.</i>
+          Boston, Addison Wesley.<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup></p>
+        <p><sup id="fn6"><br>6. Malak M. S., East R. (2016) <i>Spark GraphX in Action</i> New York, Manning Publications
+          Company.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup></p>
+        <p><sup><br>6. <a href="https://spark.apache.org/docs/latest/ml-guide.html">Machine Learning Library (MLlib) Guide</a></sup></p>
+        <p><sup><br>7. <a href="https://spark.apache.org/docs/latest/graphx-programming-guide.html">GraphX Programming Guide</a></sup></p>
+        <p><sup><br>8. <a href="https://spark.apache.org/docs/latest/sql-programming-guide.html">Spark SQL, DataFrames and Datasets Guide</a></sup></p>
+        <p><sup><br>9. <a href="https://spark.apache.org/docs/latest/streaming-programming-guide.html">Spark Streaming Programming Guide</a></sup></p>
+        <p><sup><br>10. Zaharia M. <a href="http://people.csail.mit.edu/matei/talks/2010/stanford_spark.pd"><i>Spark: In­‐Memory Cluster Computing
+          for Iterative and Interactive Applications</i></a> [Presentation], AMPLab UC Berkeley.</sup></p>
+        <p><sup><br>11. Zaharia M. (2017) <a href="https://web.stanford.edu/class/cs341/slides/spark_tutorial.pdf"><i>Parallel Programming with Apache
+          Spark</i></a> [Presentation], CS341, Stanford University.</sup></p>
+        <p><sup><br>12. Pietzuch, P (2018) <a href="https://wwwhomes.doc.ic.ac.uk/~prp/doc/teaching/1718/410H/05-sdsd-410h-spark.pdf"><i>Resilient
+          Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing</i></a> [Lecture], Imperial College London.</sup></p>
+       <p><sup id="fn7"><br>13. Meng, X <a href="https://stanford.edu/~rezab/sparkworkshop/slides/xiangrui.pdf"><i>MLlib: Scalable Machine Learning on Spark
+       </i></a> [Lecture], Stanford University.<a href="#ref7" title="Jump back to footnote 7 in the text.">↩</a></sup></p>
             <br><br>
-          </article>
-        </div>
+          </div>
     </div>
   </div>
 </div>
