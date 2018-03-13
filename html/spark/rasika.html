@@ -79,10 +79,10 @@ iframe {
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="./index.html">Home</a>
+              <a class="nav-link js-scroll-trigger" href="../../index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Problem Classes</a>
+              <a class="nav-link js-scroll-trigger" href="../problem_catagories/pamel.html">Problem Classes</a>
             </li>
             <li class="nav-item dropdown">
               <!-- a class="nav-link js-scroll-trigger" href="#">Models</a-->
@@ -91,9 +91,9 @@ iframe {
               Models
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="nav-link dropdown-item" href="#">MapReduce</a>
-              <a class="nav-link dropdown-item" href="#">TensorFlow</a>
-              <a class="nav-link dropdown-item" href="#">Spark</a>
+              <a class="nav-link dropdown-item" href="../mapreduce/giovanni_2.html">MapReduce</a>
+              <a class="nav-link dropdown-item" href="../tensorflow/rajat.html">TensorFlow</a>
+              <a class="nav-link dropdown-item" href="./rasika.html">Spark</a>
               </div>
             </li>
           </ul>
@@ -162,7 +162,7 @@ iframe {
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#section7">Spark's Drawbacks</a>
-          <hr class="sideMenuDivider">
+          <!--<hr class="sideMenuDivider">-->
         </li>
         <!--<li class="nav-item">
           <a class="nav-link" href="#section8">References</a>
@@ -177,12 +177,21 @@ iframe {
         <p> Apache Spark is an open source framework for cluster computing in the cloud. It was first developed by Matei Zaharia in 2009
           at the UC Berkeley AMPLab; it was later donated to the Apache Software Foundation in 2013. Spark was created in
           response to some of the deficiencies identified in MapReduce due to inefficient data sharing.</p>
-          <p>
-          Firstly, MapReduce is inefficient with <b>iterative computations</b> that work on the same dataset repeatedly, as MapReduce
-          must read data from the disk with every iteration, which takes too long. Secondly, MapReduce does not support
-          <b>interactive applications</b> such as data analysis (e.g. making ad-hoc queries to the dataset) because with MapReduce,
-           queries can take too long to process since the data must be read from stable storage.
-           <sup><a href="#fn1" id="ref1">1</a></sup></p>
+          <ol class="personal-page-list">
+            <li class="">
+              <span>1.</span>
+              <p>
+              <br>
+              MapReduce is inefficient with <b>iterative computations</b> that work on the same dataset repeatedly, as MapReduce
+              must read data from the disk with every iteration, which takes too long.
+            <li>
+              <span>2.</span>
+              <p>
+                <br>
+              MapReduce does not support <b>interactive applications</b> such as data analysis (e.g. making ad-hoc queries to
+              the dataset) because with MapReduce, queries can take too long to process since the data must be read from stable
+              storage.<sup><a href="#fn1" id="ref1">1</a></sup></p></p>
+            </li>
           <p>
           Spark does not have these issues for this class of problems as it uses <b>resilient distributed datasets (RDDs)</b>
           which allow it to perform the above computations in-memory. This means intermediate results are held in-memory
@@ -288,24 +297,39 @@ iframe {
         <article>
         <h1>Advantages of Spark</h1>
         <hr>
-        <p>Spark can “run programs up to 100x faster than Hadoop MapReduce in memory, or 10x faster on disk”.
-          (<a href="https://spark.apache.org">Apache Spark Website</a>)</p>
-        <p>Spark is easy to use as it has APIs for commonly used programming languages such as Scala (the language in which
+        <ol class="personal-page-list">
+          <li class="">
+            <span>1.</span>
+            <p>
+              <br>
+              Spark can “run programs up to 100x faster than Hadoop MapReduce in memory, or 10x faster on disk”.
+              (<a href="https://spark.apache.org">Apache Spark Website</a>)
+            </p>
+          </li>
+          <li>
+            <span>2.</span>
+        <p><br>Spark is easy to use as it has APIs for commonly used programming languages such as Scala (the language in which
            Spark is implemented), Python and Java. In addition, the Spark shell makes interactive data analysis simpler as
-           ad-hoc queries to the dataset can be made more easily.</p>
-        <p>As mentioned before, iterative algorithms that work on the same data set (such as PageRank), multiple times do
+           ad-hoc queries to the dataset can be made more easily.</p></li>
+           <li>
+             <span>3.</span>
+        <p><br>As mentioned before, iterative algorithms that work on the same data set (such as PageRank), multiple times do
           not perform well with Hadoop MapReduce. This is because each iteration must read/write to HDFS which necessitates
           several intermediate processes such as serialisation or compression<sup><a href="#fn6" id="ref6">6</a></sup>
           (Malak, East, 2016). Hence, Spark is superior for this class of computations due to its RDD data abstraction which
-          allows in-memory computations so that the dataset can be re-accessed more quickly.</p>
-        <p>Furthermore, Spark users can use the “persist” or “cache” methods to cache RDDs in memory so that they can be
+          allows in-memory computations so that the dataset can be re-accessed more quickly.</p></li>
+          <li>
+            <span>4.</span>
+        <p><br>Furthermore, Spark users can use the “persist” or “cache” methods to cache RDDs in memory so that they can be
           more easily accessed in the future. This is useful for interactive data mining as querying the dataset becomes
           much faster due to the faster memory access than reading from the disk. For example, if we want the RDD F from
           the DAG diagram above to stay in memory, we make the following method call.</p>
 
-          <code style="width:30em"><font color="black"><b> F.persist(StorageLevel.MEMORY_ONLY()); </b></font></code>
+          <code style="width:30em"><font color="black"><b> F.persist(StorageLevel.MEMORY_ONLY()); </b></font></code></li>
 
-        <p><br>Spark has libraries for machine learning, SQL, graphs and streaming (see next section).</p>
+          <li>
+            <span>5.</span>
+        <p><br>Spark has libraries for machine learning, SQL, graphs and streaming (see next section).</p></li>
           <br><br>
         </article>
       </div>
@@ -414,6 +438,7 @@ iframe {
           Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing</i></a> [Lecture], Imperial College London.</sup></p>
        <p><sup id="fn7"><br>13. Meng, X <a href="https://stanford.edu/~rezab/sparkworkshop/slides/xiangrui.pdf"><i>MLlib: Scalable Machine Learning on Spark
        </i></a> [Lecture], Stanford University.<a href="#ref7" title="Jump back to footnote 7 in the text.">↩</a></sup></p>
+       <p><sup><br>14. <a href="https://www.tutorialspoint.com/apache_spark/index.htm">Apache Spark Tutorial</a></sup></p>
             <br><br>
           </div>
     </div>
