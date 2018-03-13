@@ -1,3 +1,4 @@
+
 <html lang="en">
 
   <head>
@@ -49,13 +50,13 @@ iframe {
   margin-right: auto;
 }
 
-code {
-  background-color: #inheritFFC993;
+/*code {
+  background-color: #FFC993;
   display: block;
   padding: 15px;
   margin-left: auto;
   margin-right: auto;
-}
+}*/
   </style>
 
   </head>
@@ -162,6 +163,10 @@ code {
         <li class="nav-item">
           <a class="nav-link" href="#section7">Spark's Drawbacks</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section8">References</a>
+          <hr class="sideMenuDivider">
+        </li>
       </ul>
     </nav>
     <div class="col-md-9 col-sm-12 scrollspy-example" data-spy="scroll" data-target="#sideMenu">
@@ -176,7 +181,8 @@ code {
           Firstly, MapReduce is inefficient with <b>iterative computations</b> that work on the same dataset repeatedly, as MapReduce
           must read data from the disk with every iteration, which takes too long. Secondly, MapReduce does not support
           <b>interactive applications</b> such as data analysis (e.g. making ad-hoc queries to the dataset) because with MapReduce,
-           queries can take too long to process since the data must be read from stable storage.</p>
+           queries can take too long to process since the data must be read from stable storage.
+           <sup><a href="#fn1" id="ref1">1</a></sup></p>
           <p>
           Spark does not have these issues for this class of problems as it uses <b>resilient distributed datasets (RDDs)</b>
           which allow it to perform the above computations in-memory. This means intermediate results are held in-memory
@@ -220,7 +226,7 @@ code {
           the new RDD to be calculated. To illustrate this, let us look at the following example from the Spark Programming
           Guide which calculates the total length of a text file using the map and reduce operations:</p>
 
-          <code> <font color="black"> <b> JavaRDD<String> lines = sc.textFile("data.txt");<br>
+          <code style="width:40em"> <font color="black"> <b> JavaRDD<String> lines = sc.textFile("data.txt");<br>
                  JavaRDD<Integer> lineLengths = lines.map(s -> s.length());<br>
                  int totalLength = lineLengths.reduce((a, b) -> a + b);</b></font></code>
 
@@ -292,7 +298,7 @@ code {
           much faster due to the faster memory access than reading from the disk. For example, if we want the RDD F from
           the DAG diagram above to stay in memory, we make the following method call.</p>
 
-          <code><font color="black"><b> F.persist(StorageLevel.MEMORY_ONLY()); </b></font></code>
+          <code style="width:30em"><font color="black"><b> F.persist(StorageLevel.MEMORY_ONLY()); </b></font></code>
 
         <p><br>Spark has libraries for machine learning, SQL, graphs and streaming (see next section).</p>
           <br><br>
@@ -371,6 +377,14 @@ code {
            <br><br>
          </article>
        </div>
+       <div id="section8" class="">
+         <article>
+         <h1>References</h1>
+         <hr>
+         <sup id="fn1">1. [Text of footnote 1]<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup>
+            <br><br>
+          </article>
+        </div>
     </div>
   </div>
 </div>
