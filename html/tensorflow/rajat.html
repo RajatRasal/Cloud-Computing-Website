@@ -342,44 +342,95 @@
          
       <h4 class="subtitle">Implementation</h4> 
         <p>
-          <div class="embed-responsive embed-responsive-16by9" style="height:40rem">
-            <!--iframe class="embed-responsive-item" src="./MNIST.html"
-            style="
-        -ms-zoom: 0.75;
-        -moz-transform: scale(0.75);
-        -moz-transform-origin: 0 0;
-        -o-transform: scale(0.75);
-        -o-transform-origin: 0 0;
-        -webkit-transform: scale(0.75);
-        -webkit-transform-origin: 0 0;"></iframe-->
+          <div class="embed-responsive embed-responsive-16by9" style="height:40rem;">
+            <iframe class="embed-responsive-item python-notebook" src="./MNIST.html">
+            </iframe>
           </div>
           <br>
         </p>
         
       <h4 class="subtitle">Convolutional Neural Networks</h4> 
         <p>
-        We will examine an example which used supervised learning. This technique involve 
-        training a model on a set of example input-output pairs (training data), so as to 
-        learn a function for mapping any other inputs to outputs (Machine Learning: a modern approach). 
-        From this we expect the model to establish a sensible inductive bias, a set of 
-        assumptions the model can use for future mappings. (A model of inductive bias 
-        learning, Jonathan Baxter).
-        
-        The technique we will examine is called softmax regression, which can be used to 
-        classify an observation into one of more than 2 categories (multi-label classification - 
-        springer book on multilabel classification). This is a generalisation of the logistic 
-        regression, which makes a binary classification (this is beyond the scope of this 
-        project by can be further read about here: https://www.geeksforgeeks.org/understanding-logistic-regression/,
-        (Machine Learning: a modern approach). Where the logisitic regression classifies a 
-        normalised input vector using a logistic (sigmoid) function, the softmax algorithm 
-        using a so-called softmax function, which generalises the sigmoid.   
+        We will now take a qualitative look at convolutional neural networks in the hope 
+        that it will provide further context to the workings of TensorFlow. I will extend 
+        my code from above and use this to use a simple neural network model to deeper 
+        learn the MSINT dataset.  
         </p>
+        <p>
+        (an introduction to neural networks ben rise Peter van Der smagt) 
+        A neural network is an artificial computational model which is loosely modelled 
+        on the functionality of neurons in brains of animals, such that patterns can be 
+        recognised. (https://cambridgespark.com/content/tutorials/deep-learning-for-complete-beginners-recognising-handwritten-digits/index.html). 
+        We want to use neural networks for deep learning in this case, which is made possible
+        through a network with multiple layers hidden/unseen layers between the input and 
+        output, each applying different functions to the data. 
+        (https://deeplearning4j.org/neuralnet-overview). At each layer, nodes perform 
+        computations to realise the prominence of a particular characteristic in the 
+        input data. A summation of the input/weight products input into a node is taken 
+        and passed through the nodes’ activation function to determine probabilistically 
+        how prominent a particular characteristic is. These output will then be passed 
+        to the nodes of the next layer for further abstraction to be performed.
+        </p>
+        <p>
+        If the activation function is a softmax, the returned output probabilities are 
+        distributed over each of the distinct output subclasses for that layer: the outputs 
+        from each node will then be between 0 and 1 and have a total sum of 1. 
+        </p>
+        <p>
+        A convolution neural net differs to the conventional ANN in that a filter (neuron) 
+        convolves around the input (features) matrix at each layer. These are used almost 
+        exclusively for computer vision. There are 2 mains types of layers in the CNN:
+        </p>
+        <ol class="personal-page-list">
+          <li class="">
+            <span>1.</span>
+            <p>
+            <br>
+             <b>Convolutional Layer</b> - This filter is a weight matrix, which is convolving 
+             around an input and is multiplied to each patch in the feature matrix, at each 
+             stage. At each convolutional layer in the CNN, a filter learns the features 
+             from the outputted mapping tensor, by supervised learning methods (as described 
+             in the above section) and adapts its weights to make better predictions. Thus 
+             at each C-stage, the same features matrix can be inputted multiple times to 
+             further train each filter. On each iteration, a new output features matrix is 
+             produced. There may be multiple filters working at each layer to produce a 
+             different output matrix for different aspects of the initial matrix, this leads 
+             to the stacking effect.            
+            IMAGE GOES HERE  ->(http://adventuresinmachinelearning.com/convolutional-neural-networks-tutorial-tensorflow/)
+            </p>
+          </li>
+          <li>
+            <span>2.</span>
+            <p>
+              <b>Pooling Layer</b> - Pooling filters reduce the size of a feature matrix by 
+              selecting only the most prominent feature from a patch. In max pooling, where 
+              the values in each patch are a set of features determined from the activation 
+              functions at some preceding layer in the network, then the max feature is the 
+              most detected feature. So only this needs to be passed through to the next 
+              layer. This is to make future predictions scale and orientation invariant. 
+              (https://www.coursera.org/learn/convolutional-neural-networks/lecture/hELHk/pooling-layers) 
+            </p>
+          </li>
+          <li>
+            <span>3.</span>
+            <p>
+              <br>
+              <b>Dense Layer</b> - Performs the classification after the final convolutional and pooling layers.
+              <br>
+            </p>
+          </li>
+        </ol>
+      <br>
         
       <h4 class="subtitle">Implementation</h4> 
         <p>
+          <div class="embed-responsive embed-responsive-16by9" style="height:40rem">
+            <iframe class="embed-responsive-item python-notebook" src="./MNIST_CNN.html">
+            </iframe>
+          </div>
+          <br>
         </p>
         
-       
       </div>  
       <br><br>
       </article>  

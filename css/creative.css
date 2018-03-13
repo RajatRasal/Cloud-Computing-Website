@@ -526,3 +526,13 @@ ol.personal-page-list span {
   padding-left: 0px;
   position: absolute;
 }
+
+.python-notebook {
+  -ms-zoom: 0.75;
+  -moz-transform: scale(0.75);
+  -moz-transform-origin: 0 0;
+  -o-transform: scale(0.75);
+  -o-transform-origin: 0 0;
+  -webkit-transform: scale(0.75);
+  -webkit-transform-origin: 0 0;
+}
