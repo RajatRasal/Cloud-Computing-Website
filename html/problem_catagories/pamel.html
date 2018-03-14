@@ -161,9 +161,9 @@ iframe {
     <div class="col-md-9 col-sm-12 scrollspy-example" data-spy="scroll" data-target="#sideMenu">
       <div id="section1" class="">
         <article>
-        <h1>Introduction to Cloud Computing</h1>
+        <h1>Introduction to Problem Classes of Cloud Computing</h1>
         <hr>
-        <p> INTRO TO WORK ON TOGETHER</p>
+        <p> SHOULD I DO AN INTRO FOR THIS? IDK WHAT TO SAY...</p>
           <p>
           <br><br>
         </article>
@@ -183,7 +183,7 @@ iframe {
             <li>The dataset is large enough that splitting it into subsets to distribute for independent computations will not weaken computation performance.</li>
           </ul>
         </p>
-        <p>As a result of these conditions, the MapReduce framework came about. It is used for parallel batch processing of data-intensive problems that require arbitrarily dividing the workload into smaller workloads of equal/close size so that they can be distributed across virtual machines for the algorithm to work on the subsets and then combine the results of those computations.<sup><a href="#fn3" id="ref3">3</a></sup> This parallelisation of computation allows users to achieve fast performance on large-scale clusters on commodity hardware and allows programmers with zero to minimal experience in distributed/parallel systems to exploit the large availability of resources of the cloud.<sup><a href="#fn1" id="ref1">1</a></sup></p>
+        <p>As a result of these conditions, the MapReduce framework came about. <b>It is used for parallel batch processing of data-intensive problems that require arbitrarily dividing the workload into smaller workloads of equal/close size so that they can be distributed across virtual machines for the algorithm to work on the subsets and then combine the results of those computations to give a final result.</b><sup><a href="#fn3" id="ref3">3</a></sup> This parallelisation of computation allows users to achieve fast performance on large-scale clusters on commodity hardware and allows programmers with zero to minimal experience in distributed/parallel systems to exploit the large availability of resources of the cloud.<sup><a href="#fn1" id="ref1">1</a></sup></p>
         </div>
         <h4 class="subtitle">How the framework is utilised</h4>
         <div id="subsection2b" class=""> 
@@ -207,16 +207,23 @@ iframe {
         </div>
         <h4 class="subtitle">How the framework is utilised</h4>
         <div id="subsection3b" class="">
-        <p>Google is the main user of TensorFlow since the model originated from this company. Specialising in deep-learning, the framework is perfect to use for jobs involving classification and inference, therefore Google has incorporated it in applications such as:
+        <p>Google is the main user of TensorFlow since the model originated from this company. <b>The framework is well-suited for solving problems in relation to classification and inference.</b> Therefore Google has incorporated it in applications such as:
           <ul>
             <li><b>Text and voice search:</b> Differentiating multiple voices using speech recognition and speech synthesis, filtering speech from background noise and learn to mimic voice patterns to convey natural sounding speech from text.<sup><a href="#fn8" id="ref8">8</a></sup></li>
             <li><b>Language translation:</b> Handles differing sentence structures in all the languages Google Translate supports to improve translations.<sup><a href="#fn8" id="ref8">8</a></sup> Deep-learning is also used to provide a visual translation system that allows you to take an image of text you want to translate using the camera and then the framework does the work to translate it but then also render the translation visually onto the image.<sup><a href="#fn12" id="ref12">12</a></sup></li>
+            <figure>
+              <img src="images/translate.png" alt="translate" style="width:800px;height:200px;">
+              <figcaption>Fig.1 <a href="https://research.googleblog.com/2015/07/how-google-translate-squeezes-deep.html">Google Translate's visual translation rendering feature.</a></figcaption>
+            </figure>
             <li><b>Image/video search:</b> Classifying "objects, landmarks, people, sentiments, or activities" to improve image/video search quality.<sup><a href="#fn8" id="ref8">8</a></sup></li>
             <li><b>Rankbrain:</b> Google-developed engine used in ranking results from Google Search.<sup><a href="#fn8" id="ref8">8</a></sup></li>
             <li><b>Smart Reply:</b> Utility provided in Google's email app that creates automatic responses to emails in your inbox by reading the email's content then generating short phrase suggestions to reply with that you can choose from.<sup><a href="#fn11" id="ref11">11</a></sup> The more the feature is used, the better adapted the utility becomes.</li>
+            <figure>
+              <img src="images/smartreply.png" alt="smartreply" style="width:676.5px;height:583.5px;">
+              <figcaption>Fig.2 <a href="https://research.googleblog.com/2015/07/how-google-translate-squeezes-deep.html">Google's Smart Reply feature.</a></figcaption>
+            </figure>
           </ul>
         </p>
-        <p></p>
         </div>
         <h4 class="subtitle">Limitations of TensorFlow</h4>
         <div id="subsection3c" class=""> 
@@ -230,7 +237,7 @@ iframe {
         <hr>
         <h4 class="subtitle">Why Spark came about</h4>
         <div id="subsection4a" class=""> 
-        <p>Spark is a cluster-computing framework motivated in overcoming the limitations of the MapReduce cloud computing paradigm. Meanwhile retaining the scalability and fault tolerance of its inspired framework, Spark compensates for the linear data flow of MapReduce by incorporating iterative machine learning algorithms and adopting interactive data analysis tools and this allows the new framework to reuse datasets across parallel operations to allow iterative computation.<sup><a href="#fn14" id="ref14">14</a></sup> The difference between the two is that Spark is able keep things in RAM where data is easily accessible, whereas MapReduce shuffles data in and out of disk memory.<sup><a href="#fn15" id="ref15">15</a></sup> This in effect results in the programs running 100x faster than MapReduce in memory (or 10x faster on disk).<sup><a href="#fn16" id="ref16">16</a></sup></p>
+        <p>Spark is a cluster-computing framework motivated in overcoming the limitations of the MapReduce cloud computing paradigm. Meanwhile retaining the scalability and fault tolerance of its inspired framework, Spark compensates for the linear data flow of MapReduce by incorporating iterative machine learning algorithms and adopting interactive data analysis tools. <b>Spark specialises in solving problems that requires reusing datasets across parallel operations to allow iterative computation.</b><sup><a href="#fn14" id="ref14">14</a></sup> The difference between the two is that Spark is able keep things in RAM where data is easily accessible, whereas MapReduce shuffles data in and out of disk memory.<sup><a href="#fn15" id="ref15">15</a></sup> This in effect results in the programs running 100x faster than MapReduce in memory (or 10x faster on disk).<sup><a href="#fn16" id="ref16">16</a></sup></p>
         <p>Spark also introduces some new utilities, most importantly, integrated libraries to allow “machine learning, streaming, graph programming and SQL”.<sup><a href="#fn15" id="ref15">15</a></sup>  This is an added benefit compared to MapReduce as it allows the Spark framework to be more generalised than its restricted counterpart. The libraries increase the possible processing functions to work on the dataset and allows other explorative processing tasks into a working pipeline (as detailed in the next section) to work over the model to help tasks in relation to big data meanwhile increasing usability and performance.<sup><a href="#fn17" id="ref17">17</a></sup></p>
         </div>
         <h4 class="subtitle">How the framework is utilised</h4>
@@ -243,9 +250,8 @@ iframe {
             <li><b>Spark Streaming:</b> Useful for complex real-time analytics from incoming data streams from multiple disparate sources. When combined with MLlib, you can then have a real-time machine learning system.</li>
           </ul>
         </p>
-        <p>Since the libraries given allow interactive analysis and stores loaded data in RAM, users can load datasets and query them repeatedly in reasonable time (which overcomes the low tolerance to latency issue in MapReduce).<sup><a href="#fn14" id="ref14">14</a></sup></p>
+        <p>Since the libraries given allow interactive analysis and stores loaded data in RAM, users can load datasets and query them repeatedly on various virtual machines in parallel and still get multiple analyses completed in reasonable time rather than running separate jobs like MapReduce that involves reading and writing from the disk (which causes the low tolerance to latency issue in that framework).<sup><a href="#fn14" id="ref14">14</a></sup></p>
         <p>Spark can be used to simply calculate trends from data within a certain time frame or in real-time using Spark Streaming.<sup><a href="#fn18" id="ref18">18</a></sup> This is useful for things like interactive and advanced analytics (used in Twitter’s real-time statistics) or high performance batch computation which can be utilised in cases such as Twitter’s real-time tweet analytics, data-mining in Netflix for recommendations or even for network security monitoring.<sup><a href="#fn15" id="ref15">15, </a></sup><sup><a href="#fn17" id="ref17">17</a></sup></p>
-        <p>DO I HAVE MORE TO ADD HERE?</p>
         </div>
         <h4 class="subtitle">Limitations of Spark</h4>
         <div id="subsection4c" class=""> 
