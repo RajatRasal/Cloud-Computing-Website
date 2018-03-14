@@ -529,9 +529,10 @@ ol.personal-page-list > li p {
 }
 
 ol.personal-page-list span {
-  font: bold italic 40px Helvetica;
+  font: bold italic 25px Helvetica;
   color: #FFC993;
-  padding-left: 0px;
+  padding-left: 5px;
+  padding-right:10px;
   position: absolute;
 }
 
@@ -543,4 +544,22 @@ ol.personal-page-list span {
   -o-transform-origin: 0 0;
   -webkit-transform: scale(0.75);
   -webkit-transform-origin: 0 0;
+}
+
+.gist {
+  width:500px !important; 
+}
+
+.gist-file .gist-data {
+  max-width: 600px;
+}
+
+ul.personal-page-list > li:before {
+  content: "\e080";
+  font-family: 'Glyphicons Halflings';
+  font-size: 9px;
+  float: left;
+  margin-top: 4px;
+  margin-left: -17px;
+  color: #CCCCCC;
 }

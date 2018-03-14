@@ -27,11 +27,11 @@
 
   <style>
 
-    .scrollspy-example {
+  .scrollspy-example {
   position: relative;
   height: 700px;
   overflow: scroll;
-}
+  }
   </style>
 
   </head>
@@ -104,23 +104,27 @@
           <a class="nav-link subsection" href="#subsection1" 
             style="padding-top:0;margin-left:10px;font-size:11px;">Introduction</a>
           <a class="nav-link subsection" href="#subsection2" 
-            style="padding-top:0;margin-left:10px;font-size:11px;">Advantages</a>
+            style="padding-top:0;margin-left:10px;font-size:11px;">Advantages of TF for Cloud Computing</a>
           <hr class="sideMenuDivider">
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#section2">Machine Learning</a>
           <a class="nav-link subsection" href="#subsection3" 
             style="padding-top:0;margin-left:10px;font-size:11px;">Softmax Regression</a>
-          <a class="nav-link subsection" href="#subsection3a" 
+          <a class="nav-link subsection" href="#subsection4" 
             style="padding-top:0;margin-left:10px;font-size:11px;">Implementation</a>
-          <!--a class="nav-link subsection" href="#subsection3" 
+          <a class="nav-link subsection" href="#subsection5" 
             style="padding-top:0;margin-left:10px;font-size:11px;">Convolutional Neural Networks</a-->
-          <a class="nav-link subsection" href="#subsection3a" 
+          <a class="nav-link subsection" href="#subsection6" 
             style="padding-top:0;margin-left:10px;font-size:11px;">Implementation</a>
           <hr class="sideMenuDivider">
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#section3">Graph Dataflow Model</a>
+          <a class="nav-link subsection" href="#subsection7" 
+            style="padding-top:0;margin-left:10px;font-size:11px;">Graph Model</a>
+          <a class="nav-link subsection" href="#subsection8" 
+            style="padding-top:0;margin-left:10px;font-size:11px;">Storing Data</a>
           <hr class="sideMenuDivider">
         </li>
         <li class="nav-item">
@@ -137,7 +141,7 @@
         <article> 
         <h1>What is TensorFlow?</h1>
         <hr>
-		<h4 class="subtitle">Introduction</h4>
+		<h4 class="subtitle" id="subsection1">Introduction</h4>
         <p> 
         TensorFlow is an open-source framework for performing mathematical computations, 
         primarily used for its portable, scalable implementations of machine learning 
@@ -169,7 +173,7 @@
           </iframe>
         </div>
           
-        <h4 class="subtitle">Advantages for Cloud Computing</h4>
+        <h4 class="subtitle" id="subsection2">Advantages for Cloud Computing</h4>
         <p> 
         The main advantages to using TensorFlow for any distributed, iterative calculation 
         (with the case of ML) stem from its implemented as a data flow graph. I will 
@@ -207,7 +211,7 @@
           	Small changes in the description of how the computation is to be performed can 
           	extend the domain over which the code runs. For example,  
           
-          	<code>Show the example code of the function where the MNIST code is extended. <br> <code> Add code here </code> <br></code>
+          	<code style="width:40em">Show the example code of the function where the MNIST code is extended. <br> <code> Add code here </code> <br></code>
           
           	which we will explore further later on.  In this way, the same model for a neural
           	network could be trained in the cloud, distributed over some large cluster and 
@@ -233,7 +237,7 @@
         on the MNIST dataset. This will (http://yann.lecun.com/exdb/mnist/)
         </p>
         
-        <h4 class="subtitle">Supervised Learning with Softmax Regression</h4> 
+        <h4 class="subtitle" id="subsection3">Supervised Learning with Softmax Regression</h4> 
         <p>
         We will examine an example which used supervised learning. This technique involve 
         training a model on a set of example input-output pairs (training data), so as to 
@@ -266,6 +270,7 @@
           <li>
             <span>2.</span>
             <p>
+            <br>
             We compile all the images we want to classify into a features matrix (X, dim(x) = n x m), 
             where we want to class m images (features), with n observations made about each 
             image. If we want to classify with 100 handwritten digit images which are in 
@@ -278,6 +283,7 @@
           <li>
             <span>3.</span>
             <p>
+            <br>
             Weight vectors are computed for each class (each number). This will involve 
             unravelling each image for each class in the MNIST training data set, and for 
             each pixel determining a number which represents its level of “zeroness” or 
@@ -292,6 +298,7 @@
           <li>
             <span>4.</span>
             <p>
+            <br>
             Z = xW (dim(Z) = n x k). Each element in the k-row vectors of Z gives us a score of how close 
             it is to being one of the classes. We pick the max value as the class that it 
             belongs to e.g. if Z_30 = [1.2, 1.4, 0.4, 1.3, 1.6, 5.4, 1.1, 0.1, 1.7, 0.6] 
@@ -303,6 +310,7 @@
           <li>
             <span>5.</span>
             <p>
+            <br>
             Now we use the softmax function to convert each score in Z to a probability,
              such that the sum of all probabilities in a row is 1. This allows us to use 
              the gradient decent algorithm to learn from the classification we made in 
@@ -313,6 +321,7 @@
           <li>
             <span>6.</span>
             <p>
+            <br>
             Each observation vector comes with a target vector, which uses one-hot encoding. 
             This assigns a 1 to the index that contains the expected result and a 0 to all 
             the other ones which it is not. We feed the one-hot encoded matrix and softmax 
@@ -332,6 +341,7 @@
           <li>
             <span>7.</span>
             <p>
+            <br>
             Finally we use gradient of the average entropy loss function to update the 
             weight matrix (gradient descent) (For more info: (http://ml-cheatsheet.readthedocs.io/en/latest/gradient_descent.html)
             We repeat this process for some number of iterations over the training set or 
@@ -340,16 +350,16 @@
           </li>
         </ol> 
          
-      <h4 class="subtitle">Implementation</h4> 
+      <h4 class="subtitle" id="subsection4">Implementation</h4> 
         <p>
-          <div class="embed-responsive embed-responsive-16by9" style="height:40rem;">
+          <div class="embed-responsive embed-responsive-16by9" style="height:40rem;" align="center">
             <iframe class="embed-responsive-item python-notebook" src="./MNIST.html">
             </iframe>
           </div>
           <br>
         </p>
         
-      <h4 class="subtitle">Convolutional Neural Networks</h4> 
+      <h4 class="subtitle" id="subsection5">Convolutional Neural Networks</h4> 
         <p>
         We will now take a qualitative look at convolutional neural networks in the hope 
         that it will provide further context to the workings of TensorFlow. I will extend 
@@ -402,6 +412,7 @@
           <li>
             <span>2.</span>
             <p>
+            <br>
               <b>Pooling Layer</b> - Pooling filters reduce the size of a feature matrix by 
               selecting only the most prominent feature from a patch. In max pooling, where 
               the values in each patch are a set of features determined from the activation 
@@ -422,7 +433,7 @@
         </ol>
       <br>
         
-      <h4 class="subtitle">Implementation</h4> 
+      <h4 class="subtitle" id="subsection6">Implementation</h4> 
         <p>
           <div class="embed-responsive embed-responsive-16by9" style="height:40rem">
             <iframe class="embed-responsive-item python-notebook" src="./MNIST_CNN.html">
@@ -437,38 +448,100 @@
       <div id="section3" class="">         
         <h1>Graph Dataflow Model</h1>
         <hr>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-        <h2>Subsection a</h2>
         
-                    During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-           During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-            During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.
-         
-            During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.</p>
+        <p>We are now going to take a step back and, using some of the previous examples 
+        and some new ones, analyse the TensorFlow’s graph model.<br></p>
+        
+        <h4 class="subtitle" id="subsection7">Graph Model</h4>
+        
+        <p> 
+        Computations in TensorFlow are described by a directed graph. When we code we built
+        up this graph up, each node performs a specific function and edges are our 
+        tensors/matrices. This is because the data being passed between 2 nodes provides 
+        the connection between 2 discrete processes in the algorithm. We can imagine traversing 
+        the graph as following the overall flow of data from the inputs to the output of 
+        the code. This allows us to build up our machine learning model in smaller 
+        discrete parts, making it easier to reason about the stages of a machine learning 
+        algorithm as opposed to the details of the implementation. 
+        </p>
         <p>
-        During Compile time, the compiler converts the source code into Microsoft 
-        Intermediate Language (MSIL). Microsoft Intermediate Language (MSIL) are CPU-Independent
-         set of instructions that can be effectively converted to the native code. Now with 
-         the help of JIT compiler, IL code can be executed on any computer architecture 
-         supported by the JIT compiler.</p>
+        For example, when we write the following code using simple TensorFlow operation:
+        </p>
+        <div align="center">
+          <script src="https://gist.github.com/rajowl/a2e6cc06e2bdca58fc2ebe3d10e76fee.js"></script>
+        </div>
+        <p>
+        it translates to the following graph: 
+        </p>
+        
+        Image of graph 
+        
+        <p>
+        Similarly, we get the following graph from the ML algorithm above:
+        </p>
+        
+        Image of graph
+        
+        <p>
+        We can generalise graph formation to the following conceptual procedure:
+        <ol class="personal-page-list">
+          <li>
+            <span>1.</span>
+            <p>
+            <br>
+             <b>Sessions</b> 
+             - Client programs create a session for each tensor flow graph which is to be computed.
+            </p>
+          </li>
+          <code style="width:30em">
+          ... <br>
+          with tf.Session() as sess: <br> &emsp;&ensp; # running the graph <br>
+          ... <br>
+          </code> 
+          <li>
+            <span>2.</span>
+            <p>
+            <br>
+             <b>Extending / Adding</b> 
+             - Internally, an extend method is called which allows us to add more nodes and edges 
+             to the graph. 
+            </p>
+          </li>
+          <li>
+            <span>3.</span>
+            <p>
+            <br>
+             <b>Run</b> 
+             - The run method takes the set of output names which need to be computed 
+             and passes the input tensors into them. This then calculates the transitive closure 
+             of the graph to get the outputs. It passes the tensor output values from each node 
+             to the next and moves through graph.
+             <br><br>
+             The executions of a TensorFlow graph is lazy in that unless we implicitly run 
+             the session, no values are calculated. As we build up the graph, we are merely 
+             passing references from sections of the graph to others, by assigning a tensor 
+             object the connecting edge.
+            </p>
+          </li>  
+        </ol>
+        </p>
+      
+      <h4 class="subtitle" id="subsection8">Storing Data</h4>
+      <p>
+        The following data structures will be important when considering how distributed ML
+        algorithms are implemented. 
+      </p>
+      <ul class="personal-page-list">
+        <li>
+            <p>
+            <br>
+             <b>Sessions</b> 
+             - Client programs create a session for each tensor flow graph which is to be computed.
+            </p>
+        </li>          
+      </ul>
+      
+        
       </div>
       <div id="section4" class="">         
         <h1>Distributed Computing in Context</h1>
