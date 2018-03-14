@@ -11,6 +11,14 @@ body {
 
 }
 
+code {
+  background-color: #FFC993;
+  display: block;
+  padding: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 hr {
   max-width: 50px;
   border-width: 3px;
@@ -525,4 +533,14 @@ ol.personal-page-list span {
   color: #FFC993;
   padding-left: 0px;
   position: absolute;
+}
+
+.python-notebook {
+  -ms-zoom: 0.75;
+  -moz-transform: scale(0.75);
+  -moz-transform-origin: 0 0;
+  -o-transform: scale(0.75);
+  -o-transform-origin: 0 0;
+  -webkit-transform: scale(0.75);
+  -webkit-transform-origin: 0 0;
 }

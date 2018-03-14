@@ -1,21 +1,21 @@
   const X = $("#sideMenu").offset().top - 100;
   console.log(X);
   console.log($(window).scrollTop());
-  
-  try {
+
+  /*try {
   } catch(err) {
     const X = 10;
-  }
-  
+  }*/
+
   const h = $(window).height();
   const w = $(window).width();
   console.log("height " + h);
   console.log("width " + w);
-  
+
   /*
   var sideMenuFix = function() {
     console.log($(window).scrollTop());
-    if ($(window).scrollTop() > 150 && $(window).scrollTop() <= h) { 
+    if ($(window).scrollTop() > 150 && $(window).scrollTop() <= h) {
       console.log('here');
       $("#sideMenu").css({
         position: 'relative',
@@ -38,16 +38,16 @@
         });
     }
   };
-  
-  
+
+
   sideMenuFix();
-  
+
   $(window).scroll(sideMenuFix);
   */
-  
+
   var sideMenuFix = function() {
     console.log($(window).scrollTop());
-    if ($(window).scrollTop() > (X + (w / 40)) && $(window).scrollTop() <= h) { 
+    if ($(window).scrollTop() > (X + (w / 40)) && $(window).scrollTop() <= h) {
       console.log('here');
       $("#sideMenu").css({
         position: 'relative',
@@ -68,8 +68,8 @@
         });
     }
   };
-  
-  
+
+
   sideMenuFix();
-  
+
   $(window).scroll(sideMenuFix);
