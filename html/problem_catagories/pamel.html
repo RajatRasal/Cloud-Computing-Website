@@ -149,6 +149,7 @@
         <h1>MapReduce</h1>
         <hr>
         <h4 class="subtitle">Why MapReduce came about</h4>
+        <div id="subsection2a" class=""> 
         <p>Many implementations of special-purpose computation algorithms have been designed previously to process immense datasets such as (in the case of Google) “crawled documents, web request logs, etc.” in order to derive data such as “inverted indices, various representations of the graph structure of web documents, summaries of the number of pages crawled per host, the set of most frequent queries in a given day, etc.” (2). For these computations to be carried out within a short time, the input data must be distributed across hundreds or thousands of machines in a process called parallel computation (2). This triggered the need for a new cloud computing framework: MapReduce. </p>
         <p>The initial conditions for a map/reduce framework to be useful is that (17):
           <ul>
@@ -159,14 +160,18 @@
           </ul>
         </p>
         <p>As a result of these conditions, the MapReduce framework came about. It is used for parallel batch processing of data-intensive problems that require arbitrarily dividing the workload into smaller workloads of equal/close size so that they can be distributed across virtual machines for the algorithm to work on the subsets and then combine the results of those computations (3).  This parallelisation of computation allows users to achieve fast performance on large-scale clusters on commodity hardware and allows programmers with zero to minimal experience in distributed/parallel systems to exploit the large availability of resources of the cloud (2).</p>
+        </div>
         <h4 class="subtitle">How the framework is utilised</h4>
+        <div id="subsection2b" class=""> 
         <p>The motivation behind MapReduce allows it to be applied to many different fields such as “data clustering, machine learning, and computer vision” where the map/reduce algorithm is prevalent so that the framework can deal with the parallelism and the mapping of the reduction algorithm will complete the iterations to finalise a result (7).</p>
         <p>Google in particular have shown enthusiasm for the programming model as the model is straightforward to incoming programmers as it hides most of the work done (parallelisation, fault-tolerance, locality optimisation and load balancing) and its simplicity on being applied to many problems that can be expressed in terms of the conditions required (2). MapReduce (due to its large scalability and extensive fault tolerance) is also utilised by Google to handle data mining, machine learning and “large-scale web search applications” to Google Search (such as extracting specific data from a large dataset of indexed web pages) (5) (9) because the model has economically benefitted the company in terms of efficient use of data centre resources (2).</p>
         <h4 class="subtitle">Limitations of MapReduce</h4>
+        <div id="subsection2c" class=""> 
         <p>MapReduce, as we have discussed, is beneficial for when we went to compute on large datasets in parallel however there are certain instances in which this framework is disadvantageous.</p>
         <p>Since the framework is built to deal with acyclic data flow, MapReduce cannot be applied to recursive problems. A fundamental yet simple example can be calculating the next term in the Fibonacci sequence. MapReduce cannot be applied in this case as the computation of the current value is dependent on the computation of the two previous values (i.e. f(k + 2) = f(k + 1) + f(k)) (16). Calculating this requires generating sub-computations and as a result, rather than reducing the problem, the complexity of the computation increases (17).</p>
         <p>Another case in which MapReduce is not efficient is when the dataset in question is small enough that dividing the workload is not even required to efficiently compute the result (16). If the dataset is small enough to fit on a single machine, performing a single reduce(map(data)) operation will be more efficient rather than going through the whole MapReduce process requiring for the data to be partitioned (17). The MapReduce framework should be used for concurrency purposes only and that subjects it to parallel processing of large data sets.</p>
         <p>MAY HAVE MORE INFO TO ADD HERE</p>
+        </div>
       </div>  
       <br><br>
       </article>  
@@ -174,19 +179,28 @@
         <h1>TensorFlow</h1>
         <hr>
         <h4 class="subtitle">Why TensorFlow came about</h4>
-        <p>dah dah dah</p>
+        <div id="subsection3a" class=""> 
+        <p>TensorFlow is an open-source distributed processing framework primarily used for deep-learning applications in the field of artificial intelligence, designed to work on Google’s custom ASIC (application-specific integrated circuit) called the Tensor Processing Unit (TPU) however it can also work on a CPU or GPU and be deployed in the cloud (9). It is a large-scale framework that include a set of software libraries used to express and execute machine-learning algorithms on complex datasets and (since becoming open-sourced) allows researchers and developers to collaborate and overcome the shortcomings of DistBelief, Google’s previous machine-learning system to train neural networks, which was its narrow approach to neural networks being coupled with Google’s internal infrastructure which then caused issues in sharing code for collaborators externally wanting to help improve the framework (3) (2).</p>
+        </div>
         <h4 class="subtitle">How the framework is utilised</h4>
-        <p>lah lah lah</p>
+        <div id="subsection3b" class="">
+        <p>ADD THIS</p>
+        </div>
         <h4 class="subtitle">Limitations of TensorFlow</h4>
-        <p>bah bah bah</p>
+        <div id="subsection3c" class=""> 
+        <p>ADD THIS</p>
+        </div>
       </div>
       <div id="section4" class="">         
         <h1>Spark</h1>
         <hr>
         <h4 class="subtitle">Why Spark came about</h4>
+        <div id="subsection4a" class=""> 
         <p>Spark is a cluster-computing framework motivated in overcoming the limitations of the MapReduce cloud computing paradigm. Meanwhile retaining the scalability and fault tolerance of its inspired framework, Spark compensates for the linear data flow of MapReduce by incorporating iterative machine learning algorithms and adopting interactive data analysis tools and this allows the new framework to reuse datasets across parallel operations to allow cyclic dataflow (1). The difference between the two is that Spark is able keep things in RAM where data is easily accessible, whereas MapReduce shuffles data in and out of disk memory (8). This in effect results in the programs running 100x faster than MapReduce in memory (or 10x faster on disk) (9).</p>
         <p>Spark also introduces some new utilities, most importantly, integrated libraries to allow “machine learning, streaming, graph programming and SQL” (8).  This is an added benefit compared to MapReduce as it allows the Spark framework to be more generalised than its restricted counterpart. The libraries increase the possible processing functions to work on the dataset and allows other explorative processing tasks into a working pipeline (as detailed in the next section) to work over the model to help tasks in relation to big data meanwhile increasing usability and performance (2).</p>
+        </div>
         <h4 class="subtitle">How the framework is utilised</h4>
+        <div id="subsection4b" class=""> 
         <p>As Spark incorporates new libraries, the framework can now be utilised in more real-life applications. Some of Spark’s new powerful libraries include (9) (7):
           <ul>
             <li>SQL and DataFrames - COMPLETE THIS</li>
@@ -198,17 +212,20 @@
         <p>Since the libraries given allow interactive analysis and stores loaded data in RAM, users can load datasets and query them repeatedly in reasonable time (which overcomes the low tolerance to latency issue in MapReduce) (1).</p>
         <p>Spark can be used to simply calculate trends from data within a certain time frame or in real-time using Spark Streaming (7). This is useful for things like interactive and advanced analytics (used in Twitter’s real-time statistics) or high performance batch computation which can be utilised in cases such as Twitter’s real-time tweet analytics, data-mining in Netflix for recommendations or even for network security monitoring (8) (2).</p>
         <p>DO I HAVE MORE TO ADD HERE?</p>
+        </div>
         <h4 class="subtitle">Limitations of Spark</h4>
+        <div id="subsection4c" class=""> 
         <p>Although it is much more of an efficient and generalised cloud computing framework than MapReduce, Spark still has drawbacks that make it ineffective for usage (6):
           <ul>
             <li>No file management system – Spark does not have its own file manager so usually Spark will need to merge with Hadoop (Google’s open source MapReduce framework) Distributed File System (HDFS) and another cloud-based data platform.</li>
             <li>No support for real-time processing – Spark Streaming is close to but is not real-time processing as the live data gets divided into smaller workloads that get processed and the results are returned in batches (micro-batch processing). The benefit of real-time processing is that every process is directly reflected in the master file of the data so it is always updated.</li>
-            <li>Issues in handling small files – The HDFS provides NEED TO COMPLETE THIS WHY HAVEN'T YOU DONE THIS</li>
+            <li>Issues in handling small files – The HDFS provides NEED TO COMPLETE THIS</li>
             <li>Cost-effectiveness – The operations of the framework that is performed on the data is done in memory so when working with Spark, there is high memory consumption so a large RAM unit is required. In comparison to MapReduce (in which disk space is cheaper), expenses for Spark is high.</li>
             <li>High latency – There is a large delay in data delivery during computation and therefore less data gets through per unit time (lower throughput). In big data analysis, computations will get performed on data streams and this can hinder Spark's performance if the framework has a low tolerance to latency and results produced may not be so reliable (4)</li>
             <li>- Back pressure handling – At a data input/output, there may be a build-up of data in memory that prevents any incoming data from being transferred until we can empty it which delays computation.</li>
           </ul>
         </p>
+        </div>
       </div>
     </div>
   </div>
