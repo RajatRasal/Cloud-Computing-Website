@@ -75,28 +75,91 @@
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">small introductory paragraph</p>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#p-class">Learn More</a>
+            <i class="fas fa-7x fa-cloud" style="color: #F39845"></i>
+            <br><p class="text-faded mb-5">Cloud computing is an internet service available to users who pay to utilise anything from hardware in data centers to software online for their own processing tasks. Typical cloud computing services include data storage, virtual servers, analytics, streaming and networking. What seems to be a limitless stock of computing resources upon request is also a step towards eliminating the global expense on hardware and increasing flexibility of choice in the vast amounts of hardware you can have in minutes whenever you want. The cloud is also the best platform to carry out processing-heavy tasks with its abundant resources, making it the prime location to facilitate in solving real-world problems using computing.</p>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#a-class">Learn More</a>
           </div>
         </div>
       </div>
     </header>
 
-    <section class="bg-primary" id="p-class">
+    <section class="bg-primary" id="a-class" style="background-color:#F39845 !important">
+      <div class="container">
+        <h2 class="section-heading text-white">Prerequisites</h2>
+        <hr class="light my-4">
+        <div class="row vdivide">
+            <hr class="light my-4">
+            <div class="col-sm">
+              <div class="col-lg-8 mx-auto text-center">
+                <i class="fas fa-3x fa-exclamation-triangle" style="color: #4B413F"></i>
+                <p class="text-faded mb-4"><br><font size="3"><b>Fault Tolerance</b></font></p>
+              <p class="text-faded mb-4"><font size="2">Fault tolerance is the ability of a system to recover nodes that have failed as the result of a fault. Fault tolerance can be achieved through many ways:</p>
+              <p class="text-faded mb-4"><b>Checkpointing:</b> In a fault-tolerant distributed system, this is the saving of data to stable storage at regular intervals to enable the recovery of lost data.</p>
+              <p class="text-faded mb-4"><b>Lineage tracking:</b> This is the tracking of dependencies of the datasets so that when a failure occurs, the dependencies can be retraced to recompute the lost data.</p>
+              <p class="text-faded mb-4"><b>Ping test:</b> Signals are sent to each node in the cluster and if they do not respond, they have failed.</font></p>
+              </div>
+            </div>
+            <div style="padding-top:100px" class="col-sm">
+              <div class="col-lg-8 mx-auto text-center">
+                <i class="fas fa-3x fa-code-branch" style="color: #4B413F"></i>
+                <p class="text-faded mb-4"><br><font size="3"><b>Distributed Systems</b></font></p>
+              <p class="text-faded mb-4"><font size="2">A distributed system is a network of various software elements on several computers which share and divide computing resources so they can act as one integrated network to provide a single service to the user. When a distributed program is run on the distributed system, the job is subdivided into several tasks which are handed out to the various components of the network to execute.</font></p>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="col-lg-8 mx-auto text-center">
+                <i class="fas fa-3x fa-server" style="color: #4B413F"></i>
+                <p class="text-faded mb-4"><br><font size="3"><b>Servers</b></font></p>
+              <p class="text-faded mb-4"><font size="2">A server which is a software or hardware device which takes responses from a client, performs the computation and returns the result.</font></p>
+                <i class="fas fa-3x fa-sitemap" style="color: #4B413F"></i>
+                <p class="text-faded mb-4"><br><font size="3"><b>Clusters</b></font></p>
+              <p class="text-faded mb-4"><font size="2">A cluster is a set of servers  which are interconnected so that they can serve as one computing resource. A server within the cluster is referred to as a node. The nodes in the cluster are able to work individually or together to provide support for parallel applications.</font></p>
+              </div>
+            </div>
+        </div>
+        <div class="col-lg-8 mx-auto text-center">
+          <br><br>
+          <a class="btn btn-light btn-xl js-scroll-trigger" href="#b-class">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-primary" id="b-class">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading text-white">Problem Classes</h2>
             <hr class="light my-4">
             <i class="fab fa-5x fa-hubspot" style="color: #4B413F"></i>
-            <p class="text-faded mb-4"><br><font size="3">Small descriptive paragraph</font></p>
+            <p class="text-faded mb-4"><br><font size="3">MapReduce, TensorFlow and Spark are three examples of frameworks that meet different demands of users. MapReduce and Spark are more often used in achieving results such as analytics, whereas Tensorflow is more likely to be used in improving software utility performance. TensorFlow and Spark both deal with iterative computations efficiently whereas MapReduce suffers high latency due to the disk I/O. TensorFlow is also sometimes used in conjunction with Spark or MapReduce to take advantage of their ability to deal with Big Data applications which is still superior to Distributed TensorFlow. Although Spark has the MLlib library for machine-learning, TensorFlow is far more specialised for this application. As demonstrated, we can see that some cloud computing frameworks are better suited to solve certain styles of problem more than others which means problems can be categorised by frameworks.</font></p>
             <a class="btn btn-light btn-xl js-scroll-trigger" href="./html/problem_catagories/pamel.html">Learn More</a>
+          </div>
+        </div>
+        <br><br>
+        <div class="row">
+          <div class="col-sm">
+            <div class="col-lg-8 mx-auto text-center">
+              <p id="textonarrow" class="text-faded mb-4" >MAPREDUCE</p>
+              <a href="#c-class" class="js-scroll-trigger"><i class="fas fa-7x fa-angle-down" style="color: #4B413F"></i></a>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="col-lg-8 mx-auto text-center">
+              <p id="textonarrow" class="text-faded mb-4" >TENSORFLOW</p>
+              <a href="#d-class" class="js-scroll-trigger"><i class="fas fa-7x fa-angle-down" style="color: #4B413F"></i></a>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="col-lg-8 mx-auto text-center">
+              <p id="textonarrow" class="text-faded mb-4" >SPARK</p>
+              <a href="#e-class" class="js-scroll-trigger"><i class="fas fa-7x fa-angle-down" style="color: #4B413F"></i></a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="bg-primary" id="p-class" style="background-color:#F39845 !important">
+    <section class="bg-primary" id="c-class" style="background-color:#F39845 !important">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
@@ -104,11 +167,11 @@
             <hr class="light my-4">
             <i class="fas fa-5x fa-map" style="color: #4B413F"></i>
             <p class="text-faded mb-4"><br><font size="3">
-            How are large datasets processed in a era where Big Data thrives and data is 
-            present everywhere? Which way can cloud computing help tackling these problems? 
-            MapReduce is a programming model and associated implementation invented by Google 
-            to deal with indexing the exploding volume of the content of the web by processing 
-            and generating Big Data sets with a parallel, distributed on a cluster. 
+            How are large datasets processed in a era where Big Data thrives and data is
+            present everywhere? Which way can cloud computing help tackling these problems?
+            MapReduce is a programming model and associated implementation invented by Google
+            to deal with indexing the exploding volume of the content of the web by processing
+            and generating Big Data sets with a parallel, distributed on a cluster.
             Usability, scalability and fault-tolerance are keys to its great success.
             </font></p>
             <a class="btn btn-light btn-xl js-scroll-trigger" href="./html/mapreduce/giovanni_2.html">Learn More</a>
@@ -117,7 +180,7 @@
       </div>
     </section>
 
-    <section class="bg-primary" id="p-class">
+    <section class="bg-primary" id="d-class">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
@@ -139,7 +202,7 @@
       </div>
     </section>
 
-    <section class="bg-primary" id="p-class" style="background-color:#F39845 !important">
+    <section class="bg-primary" id="e-class" style="background-color:#F39845 !important">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">

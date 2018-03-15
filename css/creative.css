@@ -11,13 +11,32 @@ body {
 
 }
 
+#ds {
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.refs p {
+  margin: 0;
+  font-size: 9px;
+}
+
+figcaption {
+  font-size: 9px;
+  width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 code {
   background-color: #FFC993;
   display: block;
   padding: 10px 30px 10px 50px;
   margin-left: auto;
   margin-right: auto;
-  color: black; 
+  color: black;
   font-weight: bold;
 }
 
@@ -551,7 +570,7 @@ ol.personal-page-list span {
 }
 
 .gist {
-  width:500px !important; 
+  width:600px !important;
 }
 
 .gist-file .gist-data {
@@ -565,5 +584,33 @@ ul.personal-page-list {
 
 /*
 ul.personal-page-list li {
-  list-style-type: none; 
+<<<<<<< HEAD
+  list-style-type: none;
 }*/
+
+/*CSS for following section is for prerequisite's box on homepage*/
+.row.vdivide [class*='col-']:not(:last-child):before {
+  background: #e0e0e0;
+  width: 3px;
+  content: "";
+  display:block;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
+  min-height: 70px;
+}
+
+#textonarrow {
+  font-family: 'Geneva', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+/*==========================================================================================================*/
+
+
+=======
+  list-style-type: none;
+}*/
+>>>>>>> 982e531dc422a40c666475ce9a2a9ba9aabd51a0
