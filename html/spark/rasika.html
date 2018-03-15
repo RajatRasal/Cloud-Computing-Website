@@ -303,7 +303,7 @@ iframe {
               <figure>
                 <img src="images/cluster-overview.png" alt="cluster architecture" style="width:500px;height:300px;">
                 <figcaption>This diagram from the <a href="">Spark docs</a> illustrates how the SparkContext object uses the cluster manager to provide the computing resources from the cluster
-                  so that the tasks allocated by SparkContext can be executed.<sup><a href="#fn2" id="ref2">2</a></sup> (Buyya, 1999)</figcaption>
+                  so that the tasks allocated by SparkContext can be executed.</figcaption>
               </figure>
 
               <p>Refer to the following code example which demonstrates how we create a SparkContext in Java, providing some further explanation of how it gives us access to the cluster. </p>
@@ -392,11 +392,13 @@ iframe {
           much faster due to the faster memory access than reading from the disk. For example, if we want the RDD F from
           the DAG diagram above to stay in memory, we make the following method call.</p>
 
-          <code style="width:30em"><font color="black"><b> F.persist(StorageLevel.MEMORY_ONLY()); </b></font></code></li>
+          <!--code style="width:30em"><font color="black"><b> F.persist(StorageLevel.MEMORY_ONLY()); </b></font></code--></li>
 
           <li>
             <span>5.</span>
         <p><br>Spark has libraries for machine learning, SQL, graphs and streaming (see next section).</p></li>
+</ol>
+        <script src="https://gist.github.com/rasnav99/c8cc5dedc84603e12b6f670288d51f6f.js"></script>
 
           <br><br>
         </article>
@@ -417,8 +419,8 @@ iframe {
           media mentions of Toyota in order to enhance their marketing strategies. MLlib helps Toyota to “categorise and
           prioritise incoming social media interactions in real-time” by separating noise from customer feedback and opinions
           which can be used to improve their product.</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/nEGSWp5LoQE" frameborder="0" allow="autoplay;
-        encrypted-media" allowfullscreen></iframe>
+        <!--iframe width="560" height="315" src="https://www.youtube.com/embed/nEGSWp5LoQE" frameborder="0" allow="autoplay;
+        encrypted-media" allowfullscreen></iframe-->
       </article>
       <article>
         <br>
@@ -432,8 +434,8 @@ iframe {
           sellers can be represented as nodes on a graph and the connections between them, the arcs. GraphX is used as a way
           to analyse this data quickly with the use of the standard algorithms already in the library and with more refined
           algorithms.</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/7_jm_tDD_SI"
-        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <!--iframe width="560" height="315" src="https://www.youtube.com/embed/7_jm_tDD_SI"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
       </article>
       <article>
         <br>
@@ -443,8 +445,8 @@ iframe {
           is used to optimise queries to the dataset for faster interactive data analysis. Queries can be executed from the
           shell which is a further benefit for interactive analysis.</p>
         <p>Yahoo uses Spark SQL to interatively query their data about visits from online advertisments</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/h8u_ZgjzHiQ"
-        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <!--iframe width="560" height="315" src="https://www.youtube.com/embed/h8u_ZgjzHiQ"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
         </article>
         <article>
           <br>
@@ -457,8 +459,8 @@ iframe {
           recommendations would be via batch processing. However, this does not allow Netflix to respond instantly to what
           is popular and what users are watching in real-time. Spark Streaming allows Netflix to process all the live data
           they are continuously collecting as it splits the data into batches which can be processed instantly.</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/vQgp71cwweg" frameborder="0" allow="autoplay;
-          encrypted-media" allowfullscreen></iframe>
+          <!--iframe width="560" height="315" src="https://www.youtube.com/embed/vQgp71cwweg" frameborder="0" allow="autoplay;
+          encrypted-media" allowfullscreen></iframe-->
         </article>
           <br><br>
       </div>
