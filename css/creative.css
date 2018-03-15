@@ -539,13 +539,15 @@ ol.personal-page-list span {
 }
 
 .python-notebook {
+  height: 500px;
+  /*
   -ms-zoom: 0.75;
   -moz-transform: scale(0.75);
   -moz-transform-origin: 0 0;
   -o-transform: scale(0.75);
   -o-transform-origin: 0 0;
   -webkit-transform: scale(0.75);
-  -webkit-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;*/
 }
 
 .gist {
@@ -559,6 +561,7 @@ ol.personal-page-list span {
 ul.personal-page-list {
   display: block;
 }
+
 
 /*
 ul.personal-page-list li {

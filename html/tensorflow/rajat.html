@@ -112,27 +112,31 @@
           <a class="nav-link subsection" href="#subsection3"
             style="padding-top:0;margin-left:10px;font-size:11px;">Softmax Regression</a>
           <a class="nav-link subsection" href="#subsection4" 
-            style="padding-top:0;margin-left:10px;font-size:11px;">Implementation</a>
+            style="padding-top:0;margin-left:10px;font-size:11px;">ML Implementation</a>
           <a class="nav-link subsection" href="#subsection5" 
             style="padding-top:0;margin-left:10px;font-size:11px;">Convolutional Neural Networks</a-->
           <a class="nav-link subsection" href="#subsection6" 
-            style="padding-top:0;margin-left:10px;font-size:11px;">Implementation</a>
+            style="padding-top:0;margin-left:10px;font-size:11px;">CNN Implementation</a>
           <hr class="sideMenuDivider">
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#section3">Graph Dataflow Model</a>
-          <a class="nav-link subsection" href="#subsection7" 
-            style="padding-top:0;margin-left:10px;font-size:11px;">Graph Model</a>
           <a class="nav-link subsection" href="#subsection8" 
             style="padding-top:0;margin-left:10px;font-size:11px;">Storing Data</a>
+          <a class="nav-link subsection" href="#subsection7" 
+            style="padding-top:0;margin-left:10px;font-size:11px;">Graph Model</a>
           <hr class="sideMenuDivider">
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#section4">Distributed Computing in Context</a>
-          <hr class="sideMenuDivider">
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#section5">Use Cases</a>
+          <a class="nav-link subsection" href="#subsection9" 
+            style="padding-top:0;margin-left:10px;font-size:11px;">Graph Model in Distribution</a>
+          <a class="nav-link subsection" href="#subsection10" 
+            style="padding-top:0;margin-left:10px;font-size:11px;">Master/Worker Model</a>
+          <a class="nav-link subsection" href="#subsection11" 
+            style="padding-top:0;margin-left:10px;font-size:11px;">Distributed Data Storage Structures</a>
+          <a class="nav-link subsection" href="#subsection12" 
+            style="padding-top:0;margin-left:10px;font-size:11px;">Use Cases</a>
         </li>
       </ul>
     </nav>
@@ -167,11 +171,11 @@
         Machine Learning infrastructure to train and serve TF models.</p><br>
 
 
-        <div class="embed-responsive embed-responsive-16by9">
+        <!--div align="center" class="embed-responsive embed-responsive-16by9"-->
           <iframe width="560" height="315" src="https://www.youtube.com/embed/oZikw5k_2FM"
           frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-          </iframe>
-        </div>
+          </iframe><br><br>
+        <!--/div-->
         <h4 class="subtitle" id="subsection2">Advantages for Cloud Computing</h4>
         <p> 
         The main advantages to using TensorFlow for any distributed, iterative calculation 
@@ -197,7 +201,11 @@
             run on Android devices or across a large cluster of servers running on GPUs alike.
             (https://www.youtube.com/watch?v=t64ortpgS-E)
             (Learning TensorFlow A Guide to Building Deep Learning Systems.pdf page 6)
-          </li><br>
+          </li>
+        </ul>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/t64ortpgS-E" 
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br><br>
+        <ul>
           <li><b>Flexibility</b> -
           	TFs high level APIs provide a highly flexible set of libraries that allow complex
           	mathematical procedure to be written with ease. The graph model can be built up as
@@ -210,16 +218,19 @@
           	Small changes in the description of how the computation is to be performed can 
           	extend the domain over which the code runs. For example, 
           	<br><br>
-          	<code style="width:40em">Show the example code of the function where the MNIST code is extended. <code> Add code here </code> <br></code>
+          	<code style="width:40em">
+            &ensp; parameter_server = ["localhost:2222"] # master <br>
+            &ensp; workers = ["localhost:2223", "localhost:2224", "localhost:2225"] <br>
+            &ensp; cluster = tf.train.ClusterSpec( <br>
+            &ensp; {"ps": parameter_server, "worker": workers}) <br>
+            </code> 
+
           	<br>
-          	which we will explore further later on.  In this way, the same model for a neural
+          	which we will explore further later on. If I add more IP addresses to the parameter_server
+          	or workers list, the code will be distributed across those devices too (provided
+          	a TF server is running on them). In this way, the same model for a neural
           	network could be trained in the cloud, distributed over some large cluster and
           	then served on another platform, if it were deployed across different networks or servers.
-
-          	High level abstraction libraries such as Keras and TF-Slim built on top of
-          	TensorFlow facilities flexibility. These libraries allow for the execution of more
-          	complex computations at each node in the graph with relative ease as fewer lines
-          	of code are being written.
           </li>
           </ul>
           <br>
@@ -270,10 +281,10 @@
             <span>2.</span>
             <p>
             <br>
-            We compile all the images we want to classify into a features matrix (X, dim(x) = n x m), 
+            We compile all the images we want to classify into a features matrix (X, dim(X) = n x m), 
             where we want to class m images (features), with n observations made about each 
             image. If we want to classify with 100 handwritten digit images which are in 
-            black and white, where each image has size 28x28pixels containing either a 1 
+            black and white, where each image has size 28x28 pixels containing either a 1 
             or 0, then n = 100, m = 28 ^ 2 = 784 and k = 10 (from above). So each image 
             to be classified is a m-row vector. 
             </p>
@@ -349,13 +360,12 @@
           </li>
         </ol> 
          
-      <h4 class="subtitle" id="subsection4">Implementation</h4> 
+      <h4 class="subtitle" id="subsection4">Machine Learning Implementation</h4> 
         <p>
-          <div class="embed-responsive embed-responsive-16by9" style="height:40rem;" align="center">
-            <iframe class="embed-responsive-item python-notebook" src="./MNIST.html">
+          <div class="embed-responsive embed-responsive-16by9 python-notebook" align="center" >
+            <iframe class="embed-responsive-item" style="height:900px !important" src="./MNIST.html">
             </iframe>
           </div>
-          <br>
         </p>
       <h4 class="subtitle" id="subsection5">Convolutional Neural Networks</h4> 
         <p>
@@ -430,9 +440,9 @@
           </li>
         </ol>
       <br>
-      <h4 class="subtitle" id="subsection6">Implementation</h4> 
+      <h4 class="subtitle" id="subsection6">Convolutional Neural Network Implementation</h4> 
         <p>
-          <div class="embed-responsive embed-responsive-16by9" style="height:40rem">
+          <div class="embed-responsive embed-responsive-16by9" >
             <iframe class="embed-responsive-item python-notebook" src="./MNIST_CNN.html">
             </iframe>
           </div>
@@ -454,29 +464,45 @@
             The following data structures will be important when considering how distributed ML
             algorithms are implemented. 
           </p>
-      
           <ul class="personal-page-list">
-            <li> <span class="glyphicon glyphicon-info-sign"> </span>
+            <li>
               <p>
-               <b>Variables</b> 
-               - A wrappers of persistent tensor which survives each execution of a graph. 
-               In a run call, variables are re-assigned to the new value which was calculated 
-               for them during the traversal of the graph (consider how the weight matrix is 
-               updated during training). (http://web.donga.ac.kr/yjko/usefulthings/TensorFlow-Basic-Concept_Ko.pdf)
+              <b>Tensor</b> 
+              - In mathematics a tensor is a structure which describes linear relations 
+              between vectors and scalar. Similarly in TensorFlow, these represent edges in 
+              the graph (as mentioned above) and are implemented as a wrapper for an 
+              n-dimensional array.
               </p>
-           </li>          
-           <li>
-             <p>
-              <b>Placeholders</b> 
+            </li>
+            <li>
+              <p>
+              <b>Variables</b>  <span class="glyphicon glyphicon-asterisk" aria-hidden="true"> </span>
+              - A wrappers of persistent tensor which survives each execution of a graph. 
+              During gradient descent for example, the full graph is executed many times 
+              whilst not maintaining the initial tensors. Here persistence stores are needed 
+              to maintain the weights for a layer in a neural network. In a run call, 
+              variables are re-assigned to the new value which was calculated for them 
+              during the traversal of the graph (consider how the weight matrix is updated 
+              during training). These are treated as nodes with the graph. 
+              (http://web.donga.ac.kr/yjko/usefulthings/TensorFlow-Basic-Concept_Ko.pdf)
+              </p>
+            </li>          
+            <li>
+              <p>
+              <b>Placeholders</b>
               - Empty variables which are filled during a graph execution. 
-             </p>
-           </li>
-           <li>
-            <p>
-             <b>Queues</b> 
-             - Client programs create a session for each tensor flow graph which is to be computed.
-            </p>
-           </li>
+              </p>
+            </li>
+            
+            <li>
+              <p>
+              <b>Queues</b> 
+              - Different implementations of the standard FIFOQueue optimised for 
+              parallel/distributed processing. RandomShuffleQueue can dequeue operations 
+              in random order and be written to by multiple threads. These are just like 
+              variables in that they are not changed on they persist between sessions and 
+              have concurrent FIFO access.
+            </li>
           </ul>
         </div> 
         <br>
@@ -525,7 +551,7 @@
             with tf.Session()/tf.InteractiveSession() as sess: <br> 
             &emsp;&ensp; # running the graph <br>
             ... <br>
-          </code> 
+            </code> 
           </li>
           <li>
             <span>2.</span>
@@ -563,145 +589,131 @@
       <br><br>
       <div id="section4" class="">
         <h1>Distributed Computing in Context</h1>
-        <hr>          
+        <hr> 
+        <p>
+        By popular demand, Google introduce a distributed computing framework to TensorFlow 
+        alongside their cloud machine learning tool in early 2016. 
+        (https://research.googleblog.com/2016/04/announcing-tensorflow-08-now-with.html).
+        This section combines basic ML concepts with the general execution model of a TF 
+        graph, to see how TF can scale (machine learning) algorithms to a distributed system.  
+        </p>
         
-        <h4 class="subtitle" id="subsection8">Storing Data</h4>
+        <h4 class="subtitle" id="subsection9">Graph Model in Distribution</h4>
           <p>
-          The following data structures will be important when considering how distributed ML
-          algorithms are implemented. 
+          Nodes can be distributed across the devices being used to compute the graph. 
+          On a single CPU TensorFlow will make use of all cores by multithreading. 
+          TensorFlow will map the execution of a node in the graph to a device using a 
+          placement algorithm. For this purpose the graph model is particularly advantageous, 
+          as by ensuring that each operation is distinct, we can divide stages of an algorithm 
+          more clearly. The algorithm applies a greedy heuristic to the placement of nodes 
+          on devices by considering whether (1) there exists an implementation of an operations 
+          for a device, (2) side of the input and output tensors of the op, (3) expected 
+          completion time for the operation on a device and (4) the transmission time of 
+          tensors between cross-device nodes. This is a cost model/function; generally we can think 
+          of it as holding the input and output tensors for each node and store computation 
+          times for the operations at each node given its input tensor for a particular device. 
+          
+          (Add the maths from the paper)
+          
+          (Take example and comment - use python notebooks)
+          
+          (http://amid.fish/distributed-tensorflow-a-gentle-introduction)
           </p>
           
-          <ul class="personal-page-list">
-            <li>
-              <p>
-              <b>Variables</b>  <span class="glyphicon glyphicon-asterisk" aria-hidden="true"> </span>
-              - A wrappers of persistent tensor which survives each execution of a graph. 
-              In a run call, variables are re-assigned to the new value which was calculated 
-              for them during the traversal of the graph (consider how the weight matrix is 
-              updated during training). (http://web.donga.ac.kr/yjko/usefulthings/TensorFlow-Basic-Concept_Ko.pdf)
-              </p>
-            </li>          
-            <li>
-              <p>
-              <b>Placeholders</b>
-              Empty variables which are filled during a graph execution. 
-              </p>
-            </li>
-            
-            <li>
-              <p>
-              <b>Queues</b> 
-              - Client programs create a session for each tensor flow graph which is to be computed.
-              </p>
-            </li>
-          </ul>
+        <h4 class="subtitle" id="subsection10">Master/Worker Model</h4>
+          <p>
+          TensorFlow docs define “cluster” differently to the conventional definition 
+          (on our homepage): a set of tasks that participate in the distributed execution 
+          of a TF graph. The graph model enables a convenient implementation of clusters 
+          and servers. Clusters can be implemented as a set of nodes, where, by the definition 
+          of a tf node, each node performs a single operation. Since all TensorFlow sessions 
+          are multithreaded, all processing is done in parallel. 
+          </p>
+          
+          <p>
+          The worker/slave model in TensorFlow assigns a master, a parameter server, and 
+          workers. For a distributed system, the parameter server preserves the shared 
+          parameters and workers execute some subgraph of the main graph using data from 
+          the parameter server. Each worker is a separate device (for simplicity).  
+          Once graph node allocation has occurred, send and/or receive nodes are added 
+          to each worker’s subgraph. These enforce a direction to the dataflow between 
+          subgraphs to compose the whole graph over the distributed system. The send and 
+          receive nodes synchronise data flow between workers. In this way, only a single 
+          call to run the session is needed, in order to pass the input tensors into the 
+          input nodes, and the remaining data flow will be  will handled by the workers. 
+          This adds to the overall flexibility of this cloud computing platform, alluded 
+          to in the introduction section, as even by adding more devices/workers to the 
+          system, TensorFlow will automatically handle node allocation and the initialisation 
+          of send and receive nodes. When scaled, communication between workers may be 
+          handled by TCP. 
+          </p>
+          
+          <p> DIAGRAM </p>
+          
+        <h4 class="subtitle" id="subsection10">Distributed Data Storage Structures</h4>
+          <p>
+          Variables update their values at the end of each execution of 
+          the graph. These are a global data store and can be accessed by different sessions 
+          running their own version of the graph.  In this way, data can persist across multiple 
+          devices or threads.
+          </p>
+          <p>
+          Queues can be used as opposed to the feed-dict parameter to the run function.
+          (Queues as opposed to feed-dict 
+          (for more info see https://web.stanford.edu/class/cs20si/2017/lectures/slides_09.pdf, 
+          http://adventuresinmachinelearning.com/introduction-tensorflow-queuing/ 
+          https://www.tensorflow.org/versions/r1.1/programmers_guide/reading_data - )
+          All TensorFlow session are multithreaded. Thread or parallel devices can enqueues randomised examples (input-output sets) 
+          that can be learned from, a training thread can dequeue and execute in mini-batches, 
+          <b>akin to the diagram below</b>, the algorithm can iterate in this way to learn. 
+          A thread might apply a pre-processing function and enqueues the image, a training 
+          thread can dequeue and learns the images.
+          </p>
+          
+          <p>
+          There are 2 main fault tolerance mechanisms in TensorFlow: 
+          <ol class="personal-page-list">
+          <li>
+            <span>1.</span>
+            <p>
+            As is the case with MapReduce, TF may choose restart the execution of a graph.
+            </p>
+          </li>
+          <li>
+            <span>2.</span>
+            <p>
+             The checkpoint feature is also available. Each variable will store its data 
+             incrementally on a save node. The system can be restarted from the previously 
+             checkpointed state. This is akin to the checkpointing API in Apache Spark. 
+            </p>
+          </li>
+          </ol>
+        <h4 class="subtitle" id="subsection10">Implementation</h4>
+        <p>
+        By making use of distributed learning for a deep learning algorithm, we should be 
+        able to train the same model faster. Distribution can be achieved by leveraging devices 
+        on the same machine or on a cluster, which may be accessed through a cloud platform 
+        (i.e. Google's Cloud Platform or AWS). 
+        </p>
+        <p>
+        Below I have extended the MNIST ML example. Much of the code is the same as the 
+        previous version, but minor changes have been made to make the code distributed.
+        </p>
+          <div align="center">
+          <script align="center" src="https://gist.github.com/rajowl/c07ebbdd84cf0562695b9f90600ec634.js"></script> 
+          </div>
+        <h4 class="subtitle" id="subsection10">Use Cases</h4>
+          <p>
+          By popular demand, Google introduce a distributed computing framework to 
+          TensorFlow alongside their cloud machine learning tool in early 2016. 
+          (https://research.googleblog.com/2016/04/announcing-tensorflow-08-now-with.html). 
+          </p>
       </div>
-      
-      <div id="section5" class="">
-        <h1>Use Cases</h1>
-        <hr>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
       </div>
     </div>
-  </div>
-</div>
+   </div>
 
-        <section class="p-0" id="portfolio">
-      <div class="container-fluid p-0">
-        <div class="row no-gutters popup-gallery">
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
-              <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    Category
-                  </div>
-                  <div class="project-name">
-                    Project Name
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">
-              <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    Category
-                  </div>
-                  <div class="project-name">
-                    Project Name
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">
-              <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    Category
-                  </div>
-                  <div class="project-name">
-                    Project Name
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
-              <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    Category
-                  </div>
-                  <div class="project-name">
-                    Project Name
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
-              <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    Category
-                  </div>
-                  <div class="project-name">
-                    Project Name
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
-              <div class="portfolio-box-caption">
-                <div class="portfolio-box-caption-content">
-                  <div class="project-category text-faded">
-                    Category
-                  </div>
-                  <div class="project-name">
-                    Project Name
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+
     </section>
 
 
