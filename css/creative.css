@@ -11,13 +11,26 @@ body {
 
 }
 
+.refs p {
+  margin: 0;
+  font-size: 9px;
+}
+
+figcaption {
+  font-size: 9px;
+  width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 code {
   background-color: #FFC993;
   display: block;
   padding: 10px 30px 10px 50px;
   margin-left: auto;
   margin-right: auto;
-  color: black; 
+  color: black;
   font-weight: bold;
 }
 
@@ -549,7 +562,7 @@ ol.personal-page-list span {
 }
 
 .gist {
-  width:500px !important; 
+  width:600px !important;
 }
 
 .gist-file .gist-data {
@@ -562,5 +575,5 @@ ul.personal-page-list {
 
 /*
 ul.personal-page-list li {
-  list-style-type: none; 
+  list-style-type: none;
 }*/

@@ -379,18 +379,20 @@ iframe {
            such as HDFS and Cassandra and others. This makes it easier for businesses to integrate Spark with their existing infrastructure.</p></li>
            <li>
              <span>3.</span>
-        <p><br>As mentioned before, iterative algorithms that work on the same data set (such as PageRank), multiple times do
+        <p><br>As mentioned before, iterative algorithms that work on the same data set, multiple times do
           not perform well with Hadoop MapReduce. This is because each iteration must read/write to HDFS which necessitates
           several intermediate processes such as serialisation or compression<sup><a href="#fn6" id="ref6">6</a></sup>
           (Malak, East, 2016). Hence, Spark is superior for this class of computations due to its RDD data abstraction which
-          allows in-memory computations so that the dataset can be re-accessed more quickly.</p></li>
+          allows in-memory computations so that the dataset can be re-accessed more quickly. Below is an example of an interative
+          implementation of the PageRank algorithm in Spark Java.</p></li>
 
           <li>
             <span>4.</span>
         <p><br>Furthermore, Spark users can use the “persist” or “cache” methods to cache RDDs in memory so that they can be
           more easily accessed in the future. This is useful for interactive data mining as querying the dataset becomes
           much faster due to the faster memory access than reading from the disk. For example, if we want the RDD F from
-          the DAG diagram above to stay in memory, we make the following method call.</p>
+          the DAG diagram above to stay in memory, we make the following method call. Refer to the code below for an
+          example of the cache method.</p>
 
           <!--code style="width:30em"><font color="black"><b> F.persist(StorageLevel.MEMORY_ONLY()); </b></font></code--></li>
 
@@ -398,6 +400,7 @@ iframe {
             <span>5.</span>
         <p><br>Spark has libraries for machine learning, SQL, graphs and streaming (see next section).</p></li>
 </ol>
+
         <script src="https://gist.github.com/rasnav99/c8cc5dedc84603e12b6f670288d51f6f.js"></script>
 
           <br><br>
@@ -419,8 +422,8 @@ iframe {
           media mentions of Toyota in order to enhance their marketing strategies. MLlib helps Toyota to “categorise and
           prioritise incoming social media interactions in real-time” by separating noise from customer feedback and opinions
           which can be used to improve their product.</p>
-        <!--iframe width="560" height="315" src="https://www.youtube.com/embed/nEGSWp5LoQE" frameborder="0" allow="autoplay;
-        encrypted-media" allowfullscreen></iframe-->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/nEGSWp5LoQE" frameborder="0" allow="autoplay;
+        encrypted-media" allowfullscreen></iframe>
       </article>
       <article>
         <br>
@@ -434,8 +437,8 @@ iframe {
           sellers can be represented as nodes on a graph and the connections between them, the arcs. GraphX is used as a way
           to analyse this data quickly with the use of the standard algorithms already in the library and with more refined
           algorithms.</p>
-        <!--iframe width="560" height="315" src="https://www.youtube.com/embed/7_jm_tDD_SI"
-        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/7_jm_tDD_SI"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </article>
       <article>
         <br>
@@ -445,8 +448,8 @@ iframe {
           is used to optimise queries to the dataset for faster interactive data analysis. Queries can be executed from the
           shell which is a further benefit for interactive analysis.</p>
         <p>Yahoo uses Spark SQL to interatively query their data about visits from online advertisments</p>
-        <!--iframe width="560" height="315" src="https://www.youtube.com/embed/h8u_ZgjzHiQ"
-        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/h8u_ZgjzHiQ"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </article>
         <article>
           <br>
@@ -459,8 +462,8 @@ iframe {
           recommendations would be via batch processing. However, this does not allow Netflix to respond instantly to what
           is popular and what users are watching in real-time. Spark Streaming allows Netflix to process all the live data
           they are continuously collecting as it splits the data into batches which can be processed instantly.</p>
-          <!--iframe width="560" height="315" src="https://www.youtube.com/embed/vQgp71cwweg" frameborder="0" allow="autoplay;
-          encrypted-media" allowfullscreen></iframe-->
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/vQgp71cwweg" frameborder="0" allow="autoplay;
+          encrypted-media" allowfullscreen></iframe>
         </article>
           <br><br>
       </div>
@@ -481,39 +484,39 @@ iframe {
            <br><br>
          </article>
        </div>
-       <div>
+       <div class="refs">
       <hr>
-         <p><sup id="fn1">1. Zaharia, M., Chowdhury, M., Franklin, M. J., Shenker, S. and Stoica, I. (2010)
+         <p id="fn1">1. Zaharia, M., Chowdhury, M., Franklin, M. J., Shenker, S. and Stoica, I. (2010)
            <a href="https://www.usenix.org/event/hotcloud10/tech/full_papers/Zaharia.pdf">Spark:
            Cluster computing with working sets.</a> <i> 2nd USENIX Conference on Hot Topics in Cloud
            Computing (HotCloud’10)</i>, Berkeley, USENIX Association.<a href="#ref1" title="Jump back to footnote 1
-           in the text.">↩</a></sup></p>
-        <p><sup id="fn2"><br>2. Buyya, R. (1999) <i>High Performance Cluster Computing.</i> Upper Saddle River, New Jersey,
-          Prentice Hall.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup></p>
-        <p><sup id="fn3"><br>3. Zaharia M, Chowdhury M, Das T, Dave A, Ma J, McCauly M, Franklin MJ, Shenker S, Stoica I.
+           in the text.">↩</a></p>
+        <p id="fn2"><br>2. Buyya, R. (1999) <i>High Performance Cluster Computing.</i> Upper Saddle River, New Jersey,
+          Prentice Hall.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></p>
+        <p id="fn3"><br>3. Zaharia M, Chowdhury M, Das T, Dave A, Ma J, McCauly M, Franklin MJ, Shenker S, Stoica I.
           (2012) <a href="https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf">Resilient
             Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing.</a>
           <i> 9th USENIX Symposium on Networked Systems Design and Implementation</i>, Berkeley,
-          USENIX Association.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup></p>
-        <p><sup id="fn4"><br>4. Tanenbaum A. S., Van Steen M. (2002) <i>Distributed Systems: Principles and Paradigms.</i>
-          London, Pearson.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup></p>
-        <p><sup id="fn5"><br>5. Coulouris G., Dollimore J., Kindberg T. (2005) <i>Distributed Systems: Concepts and Design.</i>
-          Boston, Addison Wesley.<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup></p>
-        <p><sup id="fn6"><br>6. Malak M. S., East R. (2016) <i>Spark GraphX in Action</i> New York, Manning Publications
-          Company.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup></p>
-        <p><sup><br>6. <a href="https://spark.apache.org/docs/latest/ml-guide.html">Machine Learning Library (MLlib) Guide</a></sup></p>
-        <p><sup><br>7. <a href="https://spark.apache.org/docs/latest/graphx-programming-guide.html">GraphX Programming Guide</a></sup></p>
-        <p><sup><br>8. <a href="https://spark.apache.org/docs/latest/sql-programming-guide.html">Spark SQL, DataFrames and Datasets Guide</a></sup></p>
-        <p><sup><br>9. <a href="https://spark.apache.org/docs/latest/streaming-programming-guide.html">Spark Streaming Programming Guide</a></sup></p>
-        <p><sup><br>10. Zaharia M. <a href="http://people.csail.mit.edu/matei/talks/2010/stanford_spark.pd"><i>Spark: In­‐Memory Cluster Computing
-          for Iterative and Interactive Applications</i></a> [Presentation], AMPLab UC Berkeley.</sup></p>
-        <p><sup><br>11. Zaharia M. (2017) <a href="https://web.stanford.edu/class/cs341/slides/spark_tutorial.pdf"><i>Parallel Programming with Apache
-          Spark</i></a> [Presentation], CS341, Stanford University.</sup></p>
-        <p><sup><br>12. Pietzuch, P (2018) <a href="https://wwwhomes.doc.ic.ac.uk/~prp/doc/teaching/1718/410H/05-sdsd-410h-spark.pdf"><i>Resilient
-          Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing</i></a> [Lecture], Imperial College London.</sup></p>
-       <p><sup id="fn7"><br>13. Meng, X <a href="https://stanford.edu/~rezab/sparkworkshop/slides/xiangrui.pdf"><i>MLlib: Scalable Machine Learning on Spark
-       </i></a> [Lecture], Stanford University.<a href="#ref7" title="Jump back to footnote 7 in the text.">↩</a></sup></p>
-       <p><sup><br>14. <a href="https://www.tutorialspoint.com/apache_spark/index.htm">Apache Spark Tutorial</a></sup></p>
+          USENIX Association.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></p>
+        <p id="fn4"><br>4. Tanenbaum A. S., Van Steen M. (2002) <i>Distributed Systems: Principles and Paradigms.</i>
+          London, Pearson.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></p>
+        <p id="fn5"><br>5. Coulouris G., Dollimore J., Kindberg T. (2005) <i>Distributed Systems: Concepts and Design.</i>
+          Boston, Addison Wesley.<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></p>
+        <p id="fn6"><br>6. Malak M. S., East R. (2016) <i>Spark GraphX in Action</i> New York, Manning Publications
+          Company.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></p>
+        <p><br>6. <a href="https://spark.apache.org/docs/latest/ml-guide.html">Machine Learning Library (MLlib) Guide</a></p>
+        <p><br>7. <a href="https://spark.apache.org/docs/latest/graphx-programming-guide.html">GraphX Programming Guide</a></p>
+        <p><br>8. <a href="https://spark.apache.org/docs/latest/sql-programming-guide.html">Spark SQL, DataFrames and Datasets Guide</a></p>
+        <p><br>9. <a href="https://spark.apache.org/docs/latest/streaming-programming-guide.html">Spark Streaming Programming Guide</a></p>
+        <p><br>10. Zaharia M. <a href="http://people.csail.mit.edu/matei/talks/2010/stanford_spark.pd"><i>Spark: In­‐Memory Cluster Computing
+          for Iterative and Interactive Applications</i></a> [Presentation], AMPLab UC Berkeley.</p>
+        <p><br>11. Zaharia M. (2017) <a href="https://web.stanford.edu/class/cs341/slides/spark_tutorial.pdf"><i>Parallel Programming with Apache
+          Spark</i></a> [Presentation], CS341, Stanford University.</p>
+        <p><br>12. Pietzuch, P (2018) <a href="https://wwwhomes.doc.ic.ac.uk/~prp/doc/teaching/1718/410H/05-sdsd-410h-spark.pdf"><i>Resilient
+          Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing</i></a> [Lecture], Imperial College London.</p>
+       <p id="fn7"><br>13. Meng, X <a href="https://stanford.edu/~rezab/sparkworkshop/slides/xiangrui.pdf"><i>MLlib: Scalable Machine Learning on Spark
+       </i></a> [Lecture], Stanford University.<a href="#ref7" title="Jump back to footnote 7 in the text.">↩</a></p>
+       <p><br>14. <a href="https://www.tutorialspoint.com/apache_spark/index.htm">Apache Spark Tutorial</a></p>
             <br><br>
           </div>
     </div>
