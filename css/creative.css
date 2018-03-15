@@ -380,6 +380,7 @@ header.masthead p {
   border: none;
   border-radius: 8px;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  /*background-color: #f05f40*/
 }
 
 .btn-xl {
@@ -393,7 +394,7 @@ header.masthead p {
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   color: #fff;
-  background-color: #ee4b28 !important;
+  background-color: #ee4b28 /*#f04f50*/ !important;
 }
 
 .btn-primary:active, .btn-primary:focus {

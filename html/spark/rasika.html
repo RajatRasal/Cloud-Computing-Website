@@ -63,10 +63,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="../../index.html">Home</a>
+              <a class="nav-link js-scroll-trigger" href="./../../index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="../problem_catagories/pamel.html">Problem Classes</a>
+              <a class="nav-link js-scroll-trigger" href="./../problem_catagories/pamel.html">Problem Classes</a>
             </li>
             <li class="nav-item dropdown">
               <!-- a class="nav-link js-scroll-trigger" href="#">Models</a-->
@@ -75,8 +75,8 @@
               Models
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="nav-link dropdown-item" href="../mapreduce/giovanni_2.html">MapReduce</a>
-              <a class="nav-link dropdown-item" href="../tensorflow/rajat.html">TensorFlow</a>
+              <a class="nav-link dropdown-item" href="./../mapreduce/giovanni_2.html">MapReduce</a>
+              <a class="nav-link dropdown-item" href="./../tensorflow/rajat.html">TensorFlow</a>
               <a class="nav-link dropdown-item" href="./rasika.html">Spark</a>
               </div>
             </li>
@@ -219,7 +219,7 @@
           of elements. For more examples, refer to this <a href="https://training.databricks.com/visualapi.pdf">databricks guide</a>.</p>
 
         <h4 class="subtitle" id="subsection2">Fault Tolerance in Spark</h4>
-        <p>Fault tolerance is the ability of the system to continue functioning even when some of the nodes have failed
+        <p><a href="#a-class">Fault tolerance</a> is the ability of the system to continue functioning even when some of the nodes have failed
           <sup><a href="#fn4" id="ref4">4</a></sup>
           (Tanenbaum, van Steen, 2002). Fault tolerance is achieved by finding means of recovering lost data in the event
           of a failure due to some fault.</p>
@@ -256,7 +256,7 @@
               <sup><a href="#fn3" id="ref3">3</a></sup>:</p>
                 <figure>
                   <img src="images/DAG.jpg" alt="DAG Diagram" style="width:500px;height:300px;">
-                  <figcaption>Fig.2 Diagram of DAG stages for the transformations map, union, groupBy and join. Notice that
+                  <figcaption>Fig 1. Diagram of DAG stages for the transformations map, union, groupBy and join. Notice that
                     Stage 2 is grouped as a single stage because the Scheduler tries to put as many transformations together
                     as possible (this is called pipelining). This is possible in the case of Stage 2 because each partition
                     in directed only towards one other partition in another RDD: this property is known as having a <b>narrow
@@ -275,7 +275,7 @@
           <article>
             <h1>How Spark runs on Clusters</h1>
             <hr>
-            <p>A cluster is defined as "a collection of interconnected stand-alone computers working together as a single,
+            <p>A <a href="#a-class">cluster</a> is defined as "a collection of interconnected stand-alone computers working together as a single,
               integrated computing resource”<sup><a href="#fn2" id="ref2">2</a></sup> (Buyya, 1999). A computer within the cluster is referred to as a node; nodes
               in the cluster are generally interconnected via an LAN (local area network). The nodes in the cluster are able
               to work individually or together, with all the other nodes in the cluster, providing support for parallel
@@ -290,7 +290,7 @@
 
               <figure>
                 <img src="images/cluster-overview.png" alt="cluster architecture" style="width:500px;height:300px;">
-                <figcaption>This diagram from the <a href="">Spark docs</a> illustrates how the SparkContext object uses the cluster manager to provide the computing resources from the cluster
+                <figcaption>Fig 2. This diagram from the <a href="">Spark docs</a> illustrates how the SparkContext object uses the cluster manager to provide the computing resources from the cluster
                   so that the tasks allocated by SparkContext can be executed. The image is taken from the <a href="https://spark.apache.org/docs/latest/cluster-overview.html">
                   Spark Programming Guide</a>.</figcaption>
               </figure>
@@ -360,6 +360,16 @@
         <article>
         <h1>Spark Libraries</h1>
         <hr>
+        <p>Spark has 4 main libraries in its ecosystem: MLlib, GraphX, Spark SQL and Spark Streaming. All of these libraries
+          can be used in the same application and are integrated easily. This allows users to create a wider variety of applications
+          without having to use any tools other than Spark. For example, users could apply machine learning algorithms from MLlib to
+          live event streams, using Spark Streaming.</p>
+
+          <figure>
+            <img src="images/spark-stack.png" alt="Spark Ecosystem" style="width:400px;height:200px;">
+            <figcaption>Fig 3. Diagram of Spark Ecosystem from <a href="https://spark.apache.org/">Apache Spark Website</a></figcaption>
+          </figure>
+
       </article>
       <article>
         <h4 class="subtitle" id="subsection3">MLlib</h4>
@@ -463,7 +473,7 @@
         <p><br>11. Zaharia M. (2017) <a href="https://web.stanford.edu/class/cs341/slides/spark_tutorial.pdf"><i>Parallel Programming with Apache
           Spark</i></a> [Presentation], CS341, Stanford University.</p>
         <p><br>12. Pietzuch, P (2018) <a href="https://wwwhomes.doc.ic.ac.uk/~prp/doc/teaching/1718/410H/05-sdsd-410h-spark.pdf"><i>Resilient
-          Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing</i></a> [Lecture], Imperial College London.</p>
+          Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing</i></a> [Lecture], Imperial College London. LINK ONLY AVAILABLE TO IMPERIAL COLLEGE MEMBERS</p>
        <p id="fn7"><br>13. Meng, X <a href="https://stanford.edu/~rezab/sparkworkshop/slides/xiangrui.pdf"><i>MLlib: Scalable Machine Learning on Spark
        </i></a> [Lecture], Stanford University.<a href="#ref7" title="Jump back to footnote 7 in the text.">↩</a></p>
        <p><br>14. <a href="https://www.tutorialspoint.com/apache_spark/index.htm">Apache Spark Tutorial</a></p>
