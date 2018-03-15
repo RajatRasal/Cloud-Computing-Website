@@ -135,6 +135,8 @@
             style="padding-top:0;margin-left:10px;font-size:11px;">Master/Worker Model</a>
           <a class="nav-link subsection" href="#subsection11" 
             style="padding-top:0;margin-left:10px;font-size:11px;">Distributed Data Storage Structures</a>
+          <a class="nav-link subsection" href="#subsection14" 
+            style="padding-top:0;margin-left:10px;font-size:11px;">Implementation</a>
           <a class="nav-link subsection" href="#subsection12" 
             style="padding-top:0;margin-left:10px;font-size:11px;">Use Cases</a>
         </li>
@@ -235,6 +237,10 @@
           </ul>
           <br>
         </article>
+        <h3>To skip details on the applications of the TensorFlow model to machine learning 
+        and go straight to the details about the implementations of TensorFlow, click 
+        <a href="#section3">here.</a></h3>
+        <br>
       </div>
       
       <div id="section2" class="">
@@ -418,10 +424,10 @@
             </p>
           </li>
           <figure>
-            <img src="img/cnn1.png" alt="Convolutional Layer" style="width:400px;height:300px;">
+            <img src="img/cnn4.jpg" alt="Convolutional Layer" style="width:600px;height:250px;">
             <figcaption>This diagram illustrates how the convolutional layer in the neural network works.
-            This image comes from <a href="https://www.codeday.top/2017/10/20/50797.html">
-            https://www.codeday.top/2017/10/20/50797.html</a>
+            This image comes from <a href="http://adventuresinmachinelearning.com/convolutional-neural-networks-tutorial-tensorflow/">
+            http://adventuresinmachinelearning.com/convolutional-neural-networks-tutorial-tensorflow/</a>
             </figcaption>
           </figure>
           <li>
@@ -437,6 +443,13 @@
               (https://www.coursera.org/learn/convolutional-neural-networks/lecture/hELHk/pooling-layers) 
             </p>
           </li>
+          <figure>
+            <img src="img/cnn5_mp.jpg" alt="Pooling Layer" style="width:600px;height:260px;">
+            <figcaption>This diagram illustrates how the pooling in the neural network works.
+            This image comes from <a href="http://adventuresinmachinelearning.com/convolutional-neural-networks-tutorial-tensorflow/">
+            http://adventuresinmachinelearning.com/convolutional-neural-networks-tutorial-tensorflow/</a>
+            </figcaption>
+          </figure>
           <li>
             <span>3.</span>
             <p>
@@ -446,6 +459,13 @@
             </p>
           </li>
         </ol>
+          <figure>
+            <img src="img/cnn3.png" alt="Layers in CNN" style="width:600px;height:150px;">
+            <figcaption>This diagram illustrates the throughput of image pixel through filters in a CNN.
+            This image comes from <a href="http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/">
+            http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/</a>
+            </figcaption>
+          </figure>
       <br>
       <h4 class="subtitle" id="subsection6">Convolutional Neural Network Implementation</h4> 
         <p>
@@ -533,11 +553,14 @@
           <script src="https://gist.github.com/rajowl/a2e6cc06e2bdca58fc2ebe3d10e76fee.js"></script>
         </div>
         <p>
-        it translates to the following graph: 
+        which translates to the following graph: 
         </p>
-        
-        Image of graph 
-        
+        <figure>
+          <img src="img/graph2.png" alt="Graph to represent TF code in Gist (above)" style="width:700px;height:200px;">
+          <figcaption>This diagram illustrates how the pooling in the neural network works.
+          This image was produced by me in TensorBoard</a>
+          </figcaption>
+        </figure>
         <p>
         Similarly, we get the following graph from the ML algorithm above:
         </p>
@@ -633,12 +656,12 @@
           (on our homepage): a set of tasks that participate in the distributed execution 
           of a TF graph. The graph model enables a convenient implementation of clusters 
           and servers. Clusters can be implemented as a set of nodes, where, by the definition 
-          of a tf node, each node performs a single operation. Since all TensorFlow sessions 
+          of a TensorFlow node, each node performs a single operation. Since all TensorFlow sessions 
           are multithreaded, all processing is done in parallel. 
           </p>
           
           <p>
-          The worker/slave model in TensorFlow assigns a master, a parameter server, and 
+          The master/worker model in TensorFlow assigns a master, a parameter server, and 
           workers. For a distributed system, the parameter server preserves the shared 
           parameters and workers execute some subgraph of the main graph using data from 
           the parameter server. Each worker is a separate device (for simplicity).  
@@ -655,14 +678,23 @@
           handled by TCP. 
           </p>
           
-          <p> DIAGRAM </p>
+          <p>
+          <figure>
+            <img src="img/master_worker.png" alt="Layers in CNN" style="width:600px;height:250px;">
+            <figcaption>This diagram illustrates the positioning of nodes in a distributed system
+            and how TensorFlow's master/worker model handles the execution of the graph.
+             Taken from <a href="http://download.tensorflow.org/paper/whitepaper2015.pdf">
+            (Abadi et al., 2015)</a>
+            </figcaption>
+          </figure>
+          </p>
           
         <h4 class="subtitle" id="subsection10">Distributed Data Storage Structures</h4>
           <p>
           Variables update their values at the end of each execution of 
           the graph. These are a global data store and can be accessed by different sessions 
-          running their own version of the graph.  In this way, data can persist across multiple 
-          devices or threads.
+          running their own version of the graph. These are held in the parameter server.
+          In this way, data can persist across multiple devices or threads. 
           </p>
           <p>
           Queues can be used as opposed to the feed-dict parameter to the run function.
@@ -672,10 +704,19 @@
           https://www.tensorflow.org/versions/r1.1/programmers_guide/reading_data - )
           All TensorFlow session are multithreaded. Thread or parallel devices can enqueues randomised examples (input-output sets) 
           that can be learned from, a training thread can dequeue and execute in mini-batches, 
-          <b>akin to the diagram below</b>, the algorithm can iterate in this way to learn. 
+          akin to the diagram below, the algorithm can iterate in this way to learn. 
           A thread might apply a pre-processing function and enqueues the image, a training 
           thread can dequeue and learns the images.
           </p>
+          
+          <figure>
+            <img src="img/file_queues.gif" alt="Layers in CNN" style="width:600px;height:150px;">
+            <figcaption>This diagram illustrates usage of a TensorFlow queue for ML, as described
+            above, for the CIFAR dataset. This image comes from
+             <a href="http://adventuresinmachinelearning.com/introduction-tensorflow-queuing/">
+            http://adventuresinmachinelearning.com/introduction-tensorflow-queuing/</a>
+            </figcaption>
+          </figure>
           
           <p>
           There are 2 main fault tolerance mechanisms in TensorFlow: 
@@ -695,7 +736,7 @@
             </p>
           </li>
           </ol>
-        <h4 class="subtitle" id="subsection10">Implementation</h4>
+        <h4 class="subtitle" id="subsection14">Implementation</h4>
         <p>
         By making use of distributed learning for a deep learning algorithm, we should be 
         able to train the same model faster. Distribution can be achieved by leveraging devices 
@@ -709,12 +750,57 @@
           <div align="center">
           <script align="center" src="https://gist.github.com/rajowl/c07ebbdd84cf0562695b9f90600ec634.js"></script> 
           </div>
-        <h4 class="subtitle" id="subsection10">Use Cases</h4>
-          <p>
-          By popular demand, Google introduce a distributed computing framework to 
-          TensorFlow alongside their cloud machine learning tool in early 2016. 
-          (https://research.googleblog.com/2016/04/announcing-tensorflow-08-now-with.html). 
+        <h4 class="subtitle" id="subsection12">Use Cases</h4>
+        TensorFlow has become very popular over the short time it has been available as an open source tool. 
+        Here are some important cases where it is being used: 
+        <br><br>
+        <div class="container">
+         <div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="https://www.pcworld.com/article/3072256/google-io/googles-tensor-processing-unit-said-to-advance-moores-law-seven-years-into-the-future.html">
+        <img src="./img/TPU.jpg" alt="Tensor Processing Unit" style="width:100%">
+        </a>
+        <div class="caption">
+          <p>Google's TPU. Chips ere developed specifically by Google for running distributed TensorFlow
+          code over their Cloud Platform. Said to perform at 45 TFLOPS with increased
+          bandwidth to 600GB/s. Google claims these chips were used to run TensorFlow with 
+          MapReduce in the AlphaGo vs Lee Sedol match. (http://learningsys.org/nips17/assets/slides/dean-nips17.pdf) 
           </p>
+        </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="https://research.googleblog.com/2015/11/computer-respond-to-this-email.html">
+        <img src="./img/summarytext.png" alt="Text Summarisation" style="width:100%">
+        </a>
+        <div class="caption">
+          <p>Used widely for text NLP, most prominently in Google Translate. It has also been
+          used to provide article summarisation on Android phone and for snippet summaries 
+          on Google Search.  
+          </p>
+        </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="https://www.bloomberg.com/news/articles/2015-10-26/google-turning-its-lucrative-web-search-over-to-ai-machines">
+        <img class="img-fluid" src="./img/rankbrain.jpg"
+        alt="Rankbrain" style="width:100%">
+        <div class="caption">
+      </a>
+        <p> This is being used in Google Search to provide better query results. It is aimed 
+        to learn more about why people search for certain things and use this to predict 
+        future search conclusions.
+        Image taken from https://montfort.io/google-rank-brain-what-is-it-and-how-will-it-affect-seo/.
+        </p>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+
       </div>
       </div>
     </div>
