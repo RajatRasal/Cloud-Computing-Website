@@ -11,6 +11,12 @@ body {
 
 }
 
+#ds {
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .refs p {
   margin: 0;
   font-size: 9px;
@@ -576,7 +582,7 @@ ul.personal-page-list {
 /*
 ul.personal-page-list li {
 <<<<<<< HEAD
-  list-style-type: none; 
+  list-style-type: none;
 }*/
 
 /*CSS for following section is for prerequisite's box on homepage*/
