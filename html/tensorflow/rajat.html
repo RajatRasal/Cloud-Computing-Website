@@ -199,7 +199,6 @@
             as a graph, with this being the high level models object orientated realisation.
             In this way, Python’s TF API, for example, will allow for the same code to be
             run on Android devices or across a large cluster of servers running on GPUs alike.<sup><a href="#fn4" id="ref4">4</a></sup>
-            (Learning TensorFlow A Guide to Building Deep Learning Systems.pdf page 6)
           </li>
         </ul>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/t64ortpgS-E"
@@ -615,7 +614,6 @@
         <p>
         By popular demand, Google introduce a distributed computing framework to TensorFlow
         alongside their cloud machine learning tool in early 2016<sup><a href="#fn14" id="ref14">14</a></sup>.
-        (https://research.googleblog.com/2016/04/announcing-tensorflow-08-now-with.html).
         This section combines basic ML concepts with the general execution model of a TF
         graph, to see how TF can scale (machine learning) algorithms to a distributed system.
         </p>
@@ -635,18 +633,14 @@
           of it as holding the input and output tensors for each node and store computation
           times for the operations at each node given its input tensor for a particular device.<sup><a href="#fn15" id="ref15">15</a></sup>
 
-          (Add the maths from the paper)
-
-          (Take example and comment - use python notebooks)
-
           </p>
 
         <h4 class="subtitle" id="subsection10">Master/Worker Model</h4>
           <p>
           <a href="https://www.tensorflow.org/deploy/distributed#create_a_cluster">TensorFlow docs</a>
-          define “cluster” differently to the <a href="#a-class">conventional definition</a>:
-          a set of tasks that participate in the distributed execution
-          of a TF graph. The graph model enables a convenient implementation of clusters
+          define cluster differently to the <a href="./../../index.html#a-class">conventional definition</a>:
+          "a set of tasks that participate in the distributed execution
+          of a TF graph". The graph model enables a convenient implementation of clusters
           and servers. Clusters can be implemented as a set of nodes, where, by the definition
           of a TensorFlow node, each node performs a single operation. Since all TensorFlow sessions
           are multithreaded, all processing is done in parallel.
@@ -654,7 +648,7 @@
 
           <p>
           The master/worker model in TensorFlow assigns a master, a parameter server, and
-          workers. For a distributed system, the parameter server preserves the shared
+          workers. For a distributed system, the parameter server preserves the mutable shared
           parameters and workers execute some subgraph of the main graph using data from
           the parameter server. Each worker is a separate device (for simplicity).
           Once graph node allocation has occurred, send and/or receive nodes are added
@@ -684,7 +678,7 @@
         <h4 class="subtitle" id="subsection10">Distributed Data Storage Structures</h4>
           <p>
           Variables update their values at the end of each execution of
-          the graph. These are a global data store and can be accessed by different sessions
+          the graph (mutable). These are a global data store and can be accessed by different sessions
           running their own version of the graph. These are held in the parameter server.
           In this way, data can persist across multiple devices or threads.
           </p>
@@ -805,7 +799,7 @@
    <p id="fn3"><br>3. Metz C. (2015)<a href"https://www.wired.com/2015/11/google-open-sources-its-artificial-intelligence-engine/">Google Just Open Sourced TensorFlow, Its Artificial Intelligence Engine</a></a>
      <i> 9th USENIX Symposium on Networked Systems Design and Implementation</i>, Berkeley,
      USENIX Association.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></p>
-   <p id="fn4"><br>4. Hope T et al. (2017) <i>Learning TensorFlow: A Guide to Building Deep Learning Systems</i><a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></p>
+   <p id="fn4"><br>4. Hope T et al. (2017) <i>Learning TensorFlow: A Guide to Building Deep Learning Systems (pg 6)</i><a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></p>
    <p id="fn5"><br>5. Russell S (2009) <i>Artificial Intelligence: A Modern Approach (3rd edition)</i> <a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></p>
    <p id="fn6"><br>6. Baxter J (2000) <i>A Model of Inductive Bias Learning</i><a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></p>
    <p id="fn7"<br>7. Herrera F et al (2016) <i>Multilabel classification: Problem Analysis, Metrics and Techniques<i>
@@ -817,9 +811,11 @@
    <p id="fn11"><br>11. <a href="http://adventuresinmachinelearning.com/convolutional-neural-networks-tutorial-tensorflow/">Adventures In Machine Learning
    <a href="#ref11" title="Jump back to footnote 11 in the text.">↩</a></p>
    </a>
-   <p><br>12. Youngjoong K n.d. <i>Introduction of TensorFlow</i> [Lecture]
+   <p id="fn12"><br>12. Youngjoong K n.d. <i>Introduction of TensorFlow</i> [Lecture]
+   <a href="#ref12" title="Jump back to footnote 12 in the text.">↩</a></p>
+   </a>
   <p id="fn13"><br>13. Abadi M et al (2015) <i>TensorFlow: Large-Scale Machine Learning on Heterogenous Distributed Systems</i><a href="#ref13" title="Jump back to footnote 13 in the text.">↩</a></p>
-  <p id="fn14"><br>14. <a href="https://research.googleblog.com/2015/11/computer-respond-to-this-email.html">Google's Research Blog</a><a href="#ref14" title="Jump back to footnote 14 in the text.">↩</a></p>
+  <p id="fn14"><br>14. <a href="https://research.googleblog.com/2016/04/announcing-tensorflow-08-now-with.html">Google's Research Blog</a><a href="#ref14" title="Jump back to footnote 14 in the text.">↩</a></p>
   <p id="fn15"><br>15. Goldsborough P (2016) <a href="https://arxiv.org/pdf/1610.01178.pdf"><i>A Tour of TensorFlow</i></a><a href="#ref15" title="Jump back to footnote 15 in the text.">↩</a></p>
   <p id="fn16"><br>16. <a href="http://amid.fish/distributed-tensorflow-a-gentle-introduction">Distributed TensorFlow: A Gentle Introduction</a> (2017)<a href="#ref16" title="Jump back to footnote 16 in the text.">↩</a></p>
   <p id="fn17"><br>17. Huyen C (2018)<i>TensorFlow Input Pipeline<i> [Lecture]<a href="https://web.stanford.edu/class/cs20si/2017/lectures/slides_09.pdf" 
